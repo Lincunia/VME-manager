@@ -1,0 +1,10 @@
+*.exe
+*.out
+*.o
+
+*.aux
+*.log
+*.nav
+*.pdf
+*.snm
+*.toc
