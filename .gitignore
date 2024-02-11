@@ -2,9 +2,18 @@
 *.out
 *.o
 
+# LaTeX
 *.aux
 *.log
-*.nav
 *.pdf
-*.snm
 *.toc
+
+# LaTeX-beamer
+*.nav
+*.snm
+
+# LaTeX-biblatex
+*.bbl
+*.bcf
+*.blg
+*.run.xml

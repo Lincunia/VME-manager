@@ -1,9 +1,12 @@
 \documentclass{beamer}
-% Importing packages
+
 \usetheme{Ilmenau}
 \usepackage{graphicx}
+\usepackage[style=alphabetic]{biblatex}
 \usecolortheme{beaver}
-% Configure titlepage
+
+\addbibresource{biblio.bib}
+
 \title{Gestor VME}
 \institute[Colombia]{Universidad Central}
 \date{Febrero 7, 2024}
@@ -18,18 +21,16 @@ Juan David Hernández Palomino}
 \begin{frame}
   \titlepage
 \end{frame}
-\section{Problemática}
-\begin{frame}{Actores}
-    
+\input{problems}
+\input{ishikawa}
+\input{objectives}
+\input{solution}
+\begin{frame}
+    De acuerdo con \textcite{montaje}, cada elemento del PC es
+    diferente pese a sus similitudes, por lo que el software ha
+    de saber cómo comunicarse con esos componentes.
 \end{frame}
-\begin{frame}{Espina de pescado}
-
-\end{frame}
-\section{Solución}
-\begin{frame}{Objetivos}
-    
-\end{frame}
-\begin{frame}{Solución}
-    
+\begin{frame}{Referencias}
+    \printbibliography
 \end{frame}
 \end{document}
