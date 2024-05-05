@@ -1,0 +1,43 @@
+\documentclass[stu,12pt,floatsintext]{./apa7/apa7}
+
+\usepackage{csquotes}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{bibliography.bib}
+
+\usepackage[T1]{fontenc} 
+\usepackage{mathptmx}
+
+\title{
+  Prevención de errores de hardware y software en dispositivos eléctricos y
+  electrónicos por medio de un programa gestor portable
+}
+\shorttitle{Estado del arte}
+\author{Felipe Medina González y Juan David Hernández Palomino}
+\duedate{\today}
+\affiliation{Universidad Central}
+\course{Grupo 1P - Práctica de ingeniería II}
+\professor{Dora Janeth Alfondo Cómbita}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+% Esto lo tienes que hacer al final
+\input{introduccion}
+
+\input{problematica}
+\input{justificacion}
+\input{estado_del_arte}
+\input{pregunta_generadora}
+\input{objetivos}
+%\input{marco_referencial}
+%\input{metodologia}
+%\input{desarrollo}
+%\input{conclusiones}
+\printbibliography
+\end{document}

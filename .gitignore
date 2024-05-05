@@ -17,3 +17,6 @@
 *.bcf
 *.blg
 *.run.xml
+
+# LaTeX-apa7
+apa7/
