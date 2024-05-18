@@ -29,7 +29,7 @@ Reconociendo los aportes dados por Vieras (2011) como
 se cita en \cite{Zambrano2020}, se puede sobreentender el mantenimiento
 preventivo como lo que realiza un servicio técnico con los usuarios.
 
-\subsubsection{Machine Learning:}
+\subsubsection{Machine Learning}
 
 Como tal, su objetivo es automatizar la tarea de construcción de modelos
 analíticos para realizar tareas cognitivas como la detección de objetos o la
@@ -102,13 +102,130 @@ cada vez en el ámbito tecnológico se vuelve importante, ya que hace un cambio
 radical respecto a cómo nos comunicamos y cómo transmitimos la información. 
 \textcite{Singh2022} comenta que 
 
-\subsubsection{Ada Test:}
+\subsubsection{Ada Test}
 
-Estas técnicas implementadas en Ada Test explicado por \textcite{Chen2023}
-demuestran que los intentos de hacer que un dispositivo electrónico preserve
-su funcionamiento ya se han ido practicando de tal forma que, como también
-comenta \textcite{Hartl2023} hacen que los fabricantes ganen una buena
-reputación en sus fabricaciones.
+El fundamento de poder explicar lo que es Ada Test, primero 
+define los siguientes conceptos conceptos:
+
+
+Ada test, \textcite{Chen2023} se muestra como un algoritmo de pruebas sobre la
+existencia de troyanos de hardware, dicho algoritmo pasa por las siguientes
+fases: Fase I (Perfilado de circuitos), Fase II (Generación de patrones de
+prueba adaptativos basados en aprendizaje por refuerzo). Tal algoritmo se
+propuso como una mejora a los métodos que se emplean para estudiar el estado de
+los circuitos integrados de forma que cuando se estén utilizando, se emplee su
+desempeño como corresponde, que sea seguro para procesadores de sistemas de
+cómputo y que no implique desarmar el circuito para comprobar su funcionamiento.
+La manera en como se conoce esto, es a través de los siguientes conceptos que 
+\textcite{Chen2023} explicó:
+
+\begin{itemize}
+  \item \textbf{Troyano de hardware:}
+    Modificaciones maliciosas en el hardware que pueden encontrarse por defecto
+    en la cadena de los circuitos integrados de una máquina. Normalmente tiene
+    dos características: Payload y gatillo, la primera consiste el efecto del
+    circuito que no funciona como debería y la segunda es la señal que determina
+    si la payload se ejecutará o no. La Figura~\ref{fig:circuit} utiliza un
+    circuito con puertas lógicas AND y XOR que son usadas para gatillo y
+    payload respectivamente.
+
+  \item \textbf{Puertas lógicas:}
+    Para conocer lo que ocurre en la Figura~\ref{fig:circuit}, tenemos que
+    asumir que desde el lado izquierdo, está circulando corriente eléctrica en
+    una o más líneas del esquema, que resultan ser las entradas de las puertas
+    lógicas; es irrelevante saber por dónde entra la corriente, pues lo
+    importante es saber que las puertas lógicas son componentes electrónicos
+    que definen si la corriente continua a través de ellas o no. La forma en la
+    cual estas puertas definen las decisiones, se basan directamente en
+    operadores lógicos en matemáticas (por ejemplo, las puertas AND se
+    comportarán como el operador de conjunción, el OR se comportará como el
+    operador de disyunción, etc). La Figura~\ref{fig:logic} expresa el
+    funcionamiento de tales puertas.
+
+  \item \textbf{Análisis de canal lateral:}
+    Es la revisión de troyanos de hardware para determinar si hay un cambio en
+    los parámetros físicos (como energía o retarde del trayecto del circuito)
+    y para conocer su presencia se utiliza un esquema de circuito bajo prueba
+    para comprobar si el troyano directamente hace una modificación en el
+    circuito.
+
+  \item \textbf{Pruebas lógicas:}
+    Puede detectar troyanos funcionales, es decir aquellos que eliminan y añaden
+    otras operaciones de bajo nivel; cambia la funcionalidad básica de las
+    operaciones lógicas. El problema de las pruebas lógicas es que involucra
+    dejar ciertos caminos que pueden implicar otros circuitos de troyanos de
+    hardware parecidos a los de Figura~\ref{fig:circuit}
+
+  \item \textbf{Perfilado de circuitos}
+    Es una fase de Ada Test en donde se computa la transición de probabilidades
+    de cada nodo y se computa los parámetros de capacidad de prueba del programa
+    de Análisis de Controlabilidad/Observabilidad Sandia. Esta fase busca
+    principalmente generar un circuito bajo pruebas con el fin de determinar si
+    un circuito puede tener troyanos de hardware de la manera en como se espera.
+
+    Computar la transición de probabilidades en cada nodo (puerta lógica) de la
+    lista de redes implica en reconocer los elementos de un troyano de hardware
+    del mismo. Para realizar tal computación se utiliza un modelo matemático tal
+    que así: $ P_{trans} = p(1-p) $ donde $ p $ es resultado de la probabilidad
+    de cada nodo y $ P_{trans} $ es comparado con un umbral $ \theta $ para
+    encontrar los nodos ``raros'', los cuales identifican tanto las payloads
+    como los gatillos del troyano.
+
+    Y computar los parámetros de capacidad de prueba del programa de Análisis de
+    Controlabilidad/Observabilidad Sandia comprueba la calidad de los nodos
+    raros; la controlabilidad describe la habilidad de establecer un valor
+    específico de un nodo. La observabilidad consiste en determinar los valores
+    de un nodo controlando sus entradas y comprobando su salida\dots algo muy
+    similar a la comprobación de la secuencia de arranque de las placas madre
+    modernas.
+  \item \textbf{
+      Generación de patrones de prueba adaptativos basados en aprendizaje por
+      refuerzo}
+    En esta fase, Ada Test realiza una generación de prueba de entrada. Para
+    ello, se genera un conjunto de vectores iniciales de prueba, luego se
+    genera una serie de patrones candidatos que podría mejorar la detección del
+    rendimiento cuando se añade al conjunto de pruebas, posteriormente Ada Test
+    por medio del aprendizaje por refuerzo aprendido por \textcite{Janiesch2021}
+    para comprobar su funcionalidad (qué tan alta es su calidad) de cada prueba.
+
+    Esto se hace principalmente para obtener un mayor grado de conocimiento
+    sobre los troyanos de hardware de una manera más limpia.
+\end{itemize}
+
+Lo que significa que para el mantenimiento preventivo de un equipo, se puede
+sacar provecho a los algoritmos de las inteligencias artificiales (sobre todo
+Machine Learning con aprendizaje por refuerzo) para realizar una mejor
+comprensión del estado tanto del hardware como del software.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.75\textwidth]{./pictures/adatest.png}
+  \caption{
+    \textbf{Nota:} Circuit Under Test (Circuito bajo prueba), Expected responses
+    (Respuestas esperadas), Test responeses (Prueba de respuestas) y Test
+    patterns (Pruebas de patrón) son los elementos y sus salidas en inglés de
+    la representación de Ada Test. Tomado de \cite{Chen2023}}
+  \label{fig:adatest}
+\end{figure} 
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.75\textwidth]{./pictures/circuit.png}
+  \caption{
+    \textbf{Nota:} Este esquema es la demostración de un troyano de hardware.
+    Tomado de \cite{Chen2023}}
+  \label{fig:circuit}
+\end{figure} 
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.75\textwidth]{./pictures/logic.png}
+  \caption{
+    Colección de las puertas lógicas y sus operaciones básicas dependiendo de la
+    entrada que se le designe.
+  }
+  \label{fig:logic}
+\end{figure} 
 
 \subsection{Estado de los elementos de la ciberseguridad}
 
@@ -259,6 +376,8 @@ generan vulnerabilidades.
 \end{itemize}
 
 \subsubsection{Intentos de estudiar el malware}
+
+
 
 Conociendo que cada vez se mejora la seguridad de los equipos de cómputo,
 \textcite{Aboaoja2022} comenta que también se busca crear software malicioso que
