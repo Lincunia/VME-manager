@@ -39,6 +39,37 @@ problema, lo que permite a los ordenadores encontrar ideas ocultas y patrones
 complejos sin ser programados explícitamente.
 (Bishop, 2006  como se cita en \cite{Janiesch2021})
 
+En la Figura~\ref{fig:venn_diagram} se logra comprender la forma en la
+que está constituido el Machine Learning, sobre todo, para distinguer el también 
+el llamado Deep Learning que de acuerdo con las mismas fuentes, se considera un
+tipo de aprendizaje que requiere de una maquinaria mucho más pesada de lo normal,
+es decir que requiere de un coste computacional (memoría, energía y
+procesamiento) mucho mayor de lo habitual, por eso es muy común ver su
+funcionamiento en servidores y generadores de
+imágenes
+
+\begin{displayquote}
+  En cambio, los modelos demasiado complejos entrañan un mayor riesgo de
+  sobreajuste. Además, su razonamiento es más difícil de interpretar y es
+  probable que sean más costosos desde el punto de vista informático. Los
+  costes computacionales se expresan mediante los requisitos de memoria y el
+  tiempo de inferencia para ejecutar un modelo en datos nuevos. Estos criterios
+  son especialmente importantes a la hora de evaluar las redes neuronales
+  profundas, en las que pueden procesarse y almacenarse varios millones de
+  parámetros del modelo, lo que impone exigencias especiales a los recursos de
+  hardware. \parencite[e.g.,][]{Janiesch2021}
+\end{displayquote}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.75\textwidth]{./pictures/venn_diagram.png}
+  \caption{
+    \textbf{Nota:} Diagrama de Venn de los conceptos y clases del Machine
+    Learning. Tomado de \cite{Janiesch2021}
+  }
+  \label{fig:venn_diagram}
+\end{figure}
+
 Para describir cómo funciona, \textcite{Janiesch2021} comentan que esta
 inteligencia se utilizan las tres técnicas fundamentales en donde se aplica su
 uso: ``En función del problema planteado y de los datos disponibles, podemos
@@ -84,13 +115,15 @@ no supervisado y aprendizaje por refuerzo.''
     aprendizaje bajo refuerzo tales como el espacio de acción, entorno, estado,
     observaciones y recompensa y política. El espacio de acción se refiere a las
     opciones que puede tomar el agente por medio inteligencia gracias al
-    aprendizaje supervisado \parencite[e.g.,][]{Janiesch2021}. El entorno se
-    considera el espacio en donde se puede mover el agente. El estado se refiere a
-    las condiciones en las que se presenta el mismo a modo de configuración. La
-    recompensa se refiere al mayor beneficio que se puede obtener a nivel tras
-    realizar las acciones que se obtienen en el entorno. Y la política significa
-    que, dado un estado, la inteligencia por medio del agente ha de realizar una
-    serie acciones específicas de acuerdo con sus posibilidades.
+    aprendizaje supervisado. \parencite[e.g.,][]{Janiesch2021}
+
+    El entorno se considera el espacio en donde se puede mover el agente. El
+    estado se refiere a las condiciones en las que se presenta el mismo a modo
+    de configuración. La recompensa se refiere al mayor beneficio que se puede
+    obtener a nivel tras realizar las acciones que se obtienen en el entorno. Y
+    la política significa que, dado un estado, la inteligencia por medio del
+    agente ha de realizar una serie acciones específicas de acuerdo con sus
+    posibilidades. \parencite[e.g.,][]{Chen2023}
 \end{itemize}
 
 \subsubsection{Manejo de dispositivos de IoT}
@@ -339,7 +372,6 @@ generan vulnerabilidades.
     principalmente a revisar los historiales de búsqueda, monitorear las
     actividades (para luego venderlas a terceros).
     \parencite[e.g.,][]{Rosli2019}
-
 \end{itemize}
 
 \subsubsection{Técnicas comunes de hacking}
@@ -373,11 +405,40 @@ generan vulnerabilidades.
     % Meter lo que enceuntres
     % Texto no serio evidentemente
     Chingar un equipo gigante que está para servir a montones de usuarios
+
+  \item \textbf{Vishing:}
+    También conocido como el tráfico de datos personales, en este tipo de
+    técnicas no se requiere de un malware, porque lo fundamental de esta
+    técnica es el uso de la ingeniería social (engaño) para obtener información
+    personal para ganar un beneficio monetario a través de sus datos.
+    \parencite[e.g.,][]{Mosquera2019}
+
+  \item \textbf{Uso de pirámides:}
+    No se refiere literalmente a los polígonos tridimensionales, se refiere a
+    una representación virtual de una estafa piramidal. Esto se logra sabiendo
+    que en las criptomonedas hay incertidumbre en la legalidad y fluctuación,
+    por lo que los inversionistas poco cuidadosos eventualmente compran una
+    moneda virtual a unos estafadores que presumen ser expertos en tal economía.
+    \parencite[e.g.,][]{Mosquera2019}
+
+  \item \textbf{Suplantación de correo corporativo:}
+
+  \item \textbf{Carding:}
+    Como se intuye por el nombre, se refiere al robo de los datos de tarjetas de
+    crédito o de débito, también con respecto a información financiera como las
+    cuentas bancarias de una persona. Este tipo de técnicas se divide en varios
+    métodos para obtener información, como el ``skimming'', el cual se resume en
+    la clonación de tarjetas. \parencite[e.g.,][]{Mosquera2019}
+
+  \item \textbf{Ofuscación:}
+    \parencite[e.g.,][]{Aboaoja2022}
+
+  \item \textbf{:}
+  \item \textbf{:}
+  \item \textbf{:}
 \end{itemize}
 
 \subsubsection{Intentos de estudiar el malware}
-
-
 
 Conociendo que cada vez se mejora la seguridad de los equipos de cómputo,
 \textcite{Aboaoja2022} comenta que también se busca crear software malicioso que
