@@ -126,6 +126,7 @@ no supervisado y aprendizaje por refuerzo.''
     posibilidades. \parencite[e.g.,][]{Chen2023}
 \end{itemize}
 
+\iffalse
 \subsubsection{Manejo de dispositivos de IoT}
 
 % mmejorar esta parte
@@ -134,6 +135,7 @@ IoT (Internet de las cosas, en inglés) a pesar de no ser una parte muy común,
 cada vez en el ámbito tecnológico se vuelve importante, ya que hace un cambio
 radical respecto a cómo nos comunicamos y cómo transmitimos la información. 
 \textcite{Singh2022} comenta que 
+\fi
 
 \subsubsection{Ada Test}
 
@@ -335,7 +337,6 @@ puesto que esta situación por lo general, obliga a los desarrolladores a poner
 mayor énfasis en la protección ante ciertos tipos de entradas maliciosas que
 generan vulnerabilidades.
 
-% Ponte a ver el canal de VMalware para que completes esta madre XD
 \begin{itemize}
   \item \textbf{Gusano:}
     Es semejante a un virus, la diferencia radica en que este se replica tanto
@@ -401,10 +402,10 @@ generan vulnerabilidades.
       (INCIBE, 2010, como se cita en \cite{Bueno2022})
     \end{displayquote}
 
+    \iffalse
   \item \textbf{Ataques DDoS:}
-    % Meter lo que enceuntres
-    % Texto no serio evidentemente
     Chingar un equipo gigante que está para servir a montones de usuarios
+    \fi
 
   \item \textbf{Vishing:}
     También conocido como el tráfico de datos personales, en este tipo de
@@ -428,16 +429,25 @@ generan vulnerabilidades.
     crédito o de débito, también con respecto a información financiera como las
     cuentas bancarias de una persona. Este tipo de técnicas se divide en varios
     métodos para obtener información, como el ``skimming'', el cual se resume en
-    la clonación de tarjetas. \parencite[e.g.,][]{Mosquera2019}
+    la clonación de tarjetas. \parencite[][]{Mosquera2019}
 
   \item \textbf{Ofuscación:}
-    \parencite[e.g.,][]{Aboaoja2022}
-
-  \item \textbf{:}
-  \item \textbf{:}
-  \item \textbf{:}
+    Cuando se trata de leer un código de malware, para pasar desapercibido por
+    un usuario, lo que se hace es ofuscarlo. Ofuscar un archivo significa
+    modificarlo de tal forma que no pueda ser legible para cualquier usuario,
+    esto a pesar de pasar desapercibido por cualquier usuario y antivirus, sigue
+    siendo funcional cuando se ejecuta.
+    \begin{displayquote}
+      La imagen de memoria basada en opcodes puede tomarse para representar
+      dinámicamente las actividades maliciosas. Aunque el malware ofuscado no
+      puede ocultar cómo se comporta cuando se analiza dinámicamente, el
+      análisis dinámico es incapaz de satisfacer todas las condiciones
+      maliciosas para explorar todas las rutas de ejecución.
+      \parencite[]{Aboaoja2022}
+    \end{displayquote}
 \end{itemize}
 
+\iffalse
 \subsubsection{Intentos de estudiar el malware}
 
 Conociendo que cada vez se mejora la seguridad de los equipos de cómputo,
@@ -451,4 +461,4 @@ que ofrecen los dos anteriores de acuerdo a los contextos (si el malware no
 se puede analizar sin ejecutarlo, se puede usar el análisis dinámico, pero
 siempre en un entorno que no esté conectado a internet y no cuente con
 información crítica del usuario)
-
+\fi
