@@ -1,14 +1,24 @@
 \pagebreak
 \section{Problemática}
 
-En lo que respecta a \textcite{Aboaoja2022}, se puede encontrar una serie de retos
-que estos programas pueden representar a nivel tecnológico, ya implica crear
-nuevos complementos, nuevas herramientas y descubrir otras técnicas que
-permitan abordar lo que se está tratando.
+Una de las cosas que señala \textcite{Jin2023} es que en los circuitos de un
+computador se pueden encontrar fallas que se caracterizan principalmente por la
+degradación de uso y el estropeo repentino de algún componente. En principio
+se piensa que ya se debería tener control de ese aspecto, pero se sigue tratando
+de manejar tal situación por la cantidad de demanda por la reparación de
+computadores tanto domésticos como empresariales. Además, una de las cosas que
+\textcite{Aboaoja2022} aborda sobre la ciberseguridad, que es una de las áreas
+más importantes para la protección de la información de los usuarios y que
+procura evitar que los sistemas de cómputo tengan fallos
 
-Las situaciones a continuación describen lo que se refiere cuando se habla
-de ``Inadecuado funcionamiento de un equipo de cómputo'' tanto para
-dispositivos de sobremesa como móviles:
+Ambas áreas son enfocadas principalmente debido a su relación que tienen con el
+funcionamiento de un equipo de cómputo, ya que si el mismo tiene una deficiencia
+en su funcionamiento, bien pueda ser que en la parte física haya un
+comportamiento que no deba ocurrir, o que en el software (la parte lógica) tenga 
+integrado un elemento que estorbe las acciones que el usuario quiera realizar.
+Las situaciones a continuación describen lo que se refiere cuando se habla de
+``Inadecuado funcionamiento de un equipo de cómputo'' tanto para dispositivos de
+sobremesa como móviles:
 
 \subsection{Situaciones relacionadas con el mal funcionamiento de hardware}
 
@@ -51,6 +61,14 @@ economía de la empresa que diseña el producto:
 \end{displayquote}
 
 % Otras cuestiones a tratar
+Ahora, en cuanto a los aspectos técnicos sobre las fallas en aspectos de
+hardware, en la fabricación se tiene un análisis sobre el funcionamiento del
+circuito usando un modelo lógico de fallos y otro de simulación de sistemas. Pero
+como somos seres que cometen errores, a la hora de hacer tales análisis se
+omiten ciertos datos particulares como la implicación que podrían generar
+ciertos componentes tras haber realizado en un componente en particular o el
+resultado que se generó tras el diseño de las partes que conforman los equipos
+de cómputo. \parencite{Jin2023}
 
 En esto da sentido a lo que expresan \textcite{Zailani2021} cuando se
 encuentran con la problemática de que los usuarios que no son experimentados en
@@ -80,7 +98,7 @@ informática: ``Se entiende que la ciberseguridad tiene como objetivo
 principal la protección de la información digital, que está o es transmitida
 entre los todos los dispositivos que se encuentran interconectados, por esto,
 la ciberseguridad está en la seguridad informática''
-\parencite[e.g.,][]{Mosquera2019} 
+\parencite{Mosquera2019} 
 
 Así que reconociendo lo que representa la ``ciberseguridad'' y teniendo en
 cuenta que esto se aplica a diversas áreas como lo comenta
@@ -102,7 +120,7 @@ cifra datos) sea el tipo de malware que actualmente es uno de los que son más
 frecuentes: ``El Netskope Cloud Report de septiembre de 2016 reveló que el
 55,9\% de los archivos infectados con malware que se encuentran en las
 aplicaciones en la nube se comparten públicamente, por lo que la nube es una
-plataforma atractiva para los atacantes.'' \parencite[e.g.,][]{Rosli2019}
+plataforma atractiva para los atacantes.'' \parencite{Rosli2019}
 
 Los mismos demuestran que los problemas en cuanto a malware cada
 vez se hacen más notorios, por ejemplo en la Figura~\ref{fig:report2017} se
@@ -130,7 +148,7 @@ encuentra la ciberseguridad en los sistemas sanitarios al quedar completamente
 expuestos; una prueba realizada por Google, se descubrió que una de sus
 inteligencias encontraron y expusieron información crítica tanto de médicos
 como de pacientes. Lo que significa que los ``cibercriminales'' pueden realizar
-sus objetivos relacionados con el sistema sanitario.
+sus objetivos relacionados con el sistema sanitario:
 
 \begin{displayquote}
   Informes aparecidos en el Washington Post y en otros medios de comunicación
@@ -138,7 +156,7 @@ sus objetivos relacionados con el sistema sanitario.
   de inteligencia artificial dieron lugar inadvertidamente a que algunos datos
   con información sanitaria protegida se cargaran de forma que quedaran
   expuestos a cualquier persona con una capacidad básica de motor de búsqueda.
-  (Wakabayashi D, 2019, como se cita en \cite{Banja2020})
+  \parencite[Wakabayashi D, 2019, como se cita en][]{Banja2020}
 \end{displayquote}
 
 También \textcite{Banja2020} destacó que en diversas organizaciones se almacene
@@ -147,7 +165,24 @@ parte de un ente, (no tiene que ser necesariamente un atacante) se compromete
 entonces el estado de seguridad de la gente a la que pertenece tal entidad. Y
 también 
 
+% Poner sus mejoras
 \subsubsection{Problemas en el IoT}
+
+A grandes rasgos, es un campo en el que objetos de uso cotidiano están
+conectados a una red, que a su vez, está conectada a internet. A pesar de ser un
+campo en el que es poco común en el uso diario, se vuelve completamente
+importante en la seguridad informática, ya que como comenta
+\textcite{Aboaoja2022}, el desarrollo del malware se volvió tan sofisticado que
+los que terminan siendo desarrollados pueden distinguir el tipo de máquina en
+la que están, así que no es de extrañar que existan programas que se dispersen
+en una red sin el consentimiento de los usuarios.
+
+En el Internet de las Cosas al estar repleto de tantos computadores, se requiere
+entonces de una cantidad de recursos masiva para la protección de la información
+que se utiliza, y como el malware cada vez se hace más silencioso ante la
+protección, cosa que es my peligroso para entidades que usan el IoT de forma
+común y se tenga que gastar más 6.000 millones de dólares para sistemas de
+protección de la información bastante avanzados:
 
 \begin{displayquote}
   Los informes de Gartner1 y Juniper Research2 sugieren que el gasto mundial en
@@ -157,7 +192,7 @@ también
   de las vulnerabilidades en los sistemas. La discusión anterior nos lleva a
   creer que el diagnóstico y la resolución de fallas en un sistema IoT será un
   gran problema en el futuro cercano, a menos que todas las entidades dentro del
-  sistema pertenezcan a la misma empresa. \parencite[e.g.,][]{Singh2022}
+  sistema pertenezcan a la misma empresa. \parencite{Singh2022}
 \end{displayquote}
 
 \subsubsection{Situaciones nacionales}
@@ -168,7 +203,7 @@ viendo los delitos que más se cometieron con respecto a lo que se muestra en la
 Figura~\ref{fig:delitos} de acuerdo con la Ley 1273 de 2009 del código penal
 nacional. Aunque aquello pone en evidencia que se procura obtener un beneficio
 comercial o económico, ellos también evidencian que se realizan para tener una
-influencia sobre las actividades comunes. siendo estas extendidas al uso de las
+influencia sobre las actividades comunes. Siendo estas extendidas al uso de las
 tecnologías de forma amplia.
 
 \begin{figure}[htb]
