@@ -447,7 +447,6 @@ generan vulnerabilidades.
     \end{displayquote}
 \end{itemize}
 
-\iffalse
 \subsubsection{Intentos de estudiar el malware}
 
 Conociendo que cada vez se mejora la seguridad de los equipos de cómputo,
@@ -461,4 +460,84 @@ que ofrecen los dos anteriores de acuerdo a los contextos (si el malware no
 se puede analizar sin ejecutarlo, se puede usar el análisis dinámico, pero
 siempre en un entorno que no esté conectado a internet y no cuente con
 información crítica del usuario)
-\fi
+
+Estos tipos de análisis logran obtener ciertos tipos de datos, en los cuales se
+puede tomar en consideración la metodología de análisis más correcta de acuerdo
+a una situación en particular; por ejemplo, si se tiene un malware que realiza
+una serie de llamadas API, resulta más conveniente usar el análisis dinámico,
+ya que por medio de este se logra comprender directamente cuáles son las
+herramientas del sistema que tiene por defecto. Del mismo se aplica para
+archivos que están pensados para escalar privilegios dentro del sistema, como lo
+pueden ser las bibliotecas de enlace dinámico (archivos con código ejecutable
+que se cargan según la necesidad de un programa) o archivos portables (la
+estructura más común para archivos ejecutables)
+\parencite{Aboaoja2022}
+
+Aparte de estos modelos de análisis de malware, lo que se necesita evidentemente
+antes de provocar errores inesperados por parte de la operación de algún
+malware, lo que se hace dependiendo del tipo de malware es usar unos modelos de
+detección. Estos modelos son basados en firma, comportamiento, heurístico y
+discusión. \parencite{Aboaoja2022}
+
+A continuación, se hace una descripción de tales modelos según la información
+otorgada por los mismos autores:
+
+\begin{itemize}
+  \item \textbf{Modelo basado en firma}
+    El modelo basado en firma, consiste en encontrar un patrón muy común en
+    archivo con código ejecutable, es muy frecuente que sea automatizado por
+    los programas antivirus, ya que estos comparan las firmas que tienen según
+    la base de datos en donde se encuentra vinculados para evitar más
+    comportamientos semejantes.
+
+  \item \textbf{Modelo basado en comportamiento}
+    Como bien se intuye, lo que se hace es ejecutar el código del malware en un
+    entorno asegurado, concretamente en una máquina virtual. Las máquinas
+    virtuales son simuladores de sistemas operativos completamente funcionales,
+    pero cuya información no está relacionada con la del disco duro del usuario.
+
+  \item \textbf{Modelo basado en heurística}
+    Una vez extraída la información, lo que se hace primero es generar una
+    serie de reglas genéricas que pueden ser también generadas por una
+    inteligencia artificial (La herramienta YARA realiza tales acciones
+    basándose en los aprendizajes no supervisados de Machine Learning). Luego
+    con esas reglas, se investiga el contenido del malware empleando las
+    técnicas estáticas y dinámicas.
+
+  \item \textbf{Modelo basado en discusión}
+    Como las desventajas de los análisis del malware se hacen presentes al
+    aplicarlos en archivos con código ofuscado y con comportamientos poco
+    predecibles, se considera entonces que es una situación en discusión. En
+    otras palabras, las técnicas a emplear no son suficientes para conocer las
+    características del malware y se tienen que descubrir para realizar otras
+    acciones.
+\end{itemize}
+
+\subsubsection{Líneas de tiempo acorde a los tópicos}
+
+\begin{figure}[hb!]
+  \centering
+  \includegraphics[width=1\textwidth]{./pictures/timeline_1.png}
+  \caption{Línea de tiempo del tópico de dispositivos de cómputo dañados}
+  \label{fig:timeline1}
+\end{figure} 
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[height=0.5\textheight]{./pictures/timeline_2.png}
+  \caption{Línea de tiempo del tópico de la ciberseguridad}
+  \label{fig:timeline2}
+\end{figure} 
+
+\begin{figure}[hb!]
+  \includegraphics[width=0.85\textwidth]{./pictures/timeline_3.png}
+  \caption{Línea de tiempo de sistemas inteligentes}
+  \label{fig:timeline3}
+\end{figure} 
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=1\textwidth]{./pictures/timeline_4.png}
+  \caption{Línea de tiempo de la calidad de software}
+  \label{fig:timeline4}
+\end{figure} 
