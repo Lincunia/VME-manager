@@ -1,0 +1,40 @@
+\documentclass[stu,12pt,floatsintext]{apa7}
+
+\usepackage{csquotes}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{bibliografia.bib}
+
+\usepackage[T1]{fontenc} 
+\usepackage{mathptmx}
+\usepackage{graphicx} 
+
+\title{
+  Prevención de errores de hardware y software en dispositivos eléctricos y
+  electrónicos por medio de un programa gestor portable
+}
+\shorttitle{Estado del arte}
+\author{Felipe Medina González y Juan David Hernández Palomino}
+\duedate{\today}
+\affiliation{Universidad Central}
+\course{Grupo 1P - Práctica de ingeniería II}
+\professor{Dora Janeth Alfondo Cómbita}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\input{introduccion}
+\input{problematica}
+\input{justificacion}
+\input{estado_del_arte}
+\input{pregunta_generadora}
+\input{objetivos}
+\input{solucion}
+\input{conclusiones}
+\printbibliography
+\end{document}

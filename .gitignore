@@ -1,1 +1,16 @@
+# LaTeX files
+*.pdf
+*.aux
+*.log
 *.out
+
+*.cls
+# LaTeX beamer
+*.bcf
+*.xml
+*.snm
+*.toc
+# LaTeX biber
+*.bbl
+*.blg
+*.nav

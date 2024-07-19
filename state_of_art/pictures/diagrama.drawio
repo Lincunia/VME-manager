@@ -1,0 +1,126 @@
+<mxfile host="app.diagrams.net" modified="2024-05-18T22:58:46.136Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0" etag="R-uNFurAOS1dgvqdmRzk" version="24.4.4" type="device" pages="2">
+  <diagram name="Página-1" id="xIzkOSh3FahQHEhTraZF">
+    <mxGraphModel dx="880" dy="453" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-1" value="Inadecuado funcionamiento de un equipo de cómputo" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="240" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-2" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" target="_Qt4OJvapnxD1BQT6kWN-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="280" as="sourcePoint" />
+            <mxPoint x="390" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="_Qt4OJvapnxD1BQT6kWN-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-4" value="Fallos internos a nivel de hardware" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="540" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="_Qt4OJvapnxD1BQT6kWN-6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-6" value="Problemas de seguridad de la información digital" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="200" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="_Qt4OJvapnxD1BQT6kWN-8" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="165" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-8" value="Exposición inconsciente de la información" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="320" y="150" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="_Qt4OJvapnxD1BQT6kWN-10" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="205" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-10" value="Malware que cada vez se hace más sofisfticado" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="320" y="190" width="265" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="_Qt4OJvapnxD1BQT6kWN-12" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="245" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-12" value="Uso del engaño a los usuarios" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="320" y="230" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="_Qt4OJvapnxD1BQT6kWN-14" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="125" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-14" value="Usuarios reluctantes al conocimiento actual de la tecnología" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="320" y="110" width="330" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="_Qt4OJvapnxD1BQT6kWN-16" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="355" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-16" value="Desconocimiento de los elementos de hardware en los usuarios comunes" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="160" y="340" width="400" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="_Qt4OJvapnxD1BQT6kWN-18" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="395" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-18" value="Osolescencia planificada para conveniencia empresarial" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="250" y="380" width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="_Qt4OJvapnxD1BQT6kWN-20" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="435" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Qt4OJvapnxD1BQT6kWN-20" value="Deterioro en los componentes que generan fallos en cascada." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="220" y="420" width="340" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Página-2" id="FPDfXUTUXYj9lctsoKh9">
+    <mxGraphModel dx="733" dy="378" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="NyO_QNZR_UQz0iqy3yWr-2" value="&lt;b&gt;Algoritmos de Machine Learning&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="362.5" y="50" width="195" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="NyO_QNZR_UQz0iqy3yWr-3" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="80" width="520" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="NyO_QNZR_UQz0iqy3yWr-4" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="120" width="330" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="NyO_QNZR_UQz0iqy3yWr-5" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="485" y="160" width="170" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="NyO_QNZR_UQz0iqy3yWr-6" value="&lt;b&gt;Redes neuronales artificiales&lt;br&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="432.5" y="90" width="185" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="NyO_QNZR_UQz0iqy3yWr-7" value="&lt;b&gt;Redes neuronales profundas&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="477.5" y="130" width="185" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="NyO_QNZR_UQz0iqy3yWr-8" value="Máquinas de vectores de soperte, arbol de decisiones. los vecinos k más cercanos, etc." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="220" y="180" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="NyO_QNZR_UQz0iqy3yWr-9" value="Codificadores automáticos poco profundos" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="200" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="NyO_QNZR_UQz0iqy3yWr-10" value="Redes neuronales convolucionales, redes neuronales recurrentes, etc." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="500" y="210" width="140" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
