@@ -2,7 +2,7 @@
 \section{Estado del arte}
 
 Al basarse en los autores consultados, pueden identificar varios conceptos y
-t\'ecnicas que manejan la ciber-seguridad y el mantenimiento preventivo de equipos
+t\'ecnicas que manejan la ciberseguridad y el mantenimiento preventivo de equipos
 de una forma experimental, es decir, que se basan en qu\'e tan efectivas son en
 sus campos y se obtuvieron una colecci\'on de elementos a tratar. La idea de
 tales aportes consiste principalmente en reducir los fallos, ya que como
@@ -40,16 +40,16 @@ complejos sin ser programados expl\'{\i}citamente.
 \parencite[Bishop, 2006  como se cita en][]{Janiesch2021}
 
 En la Figura~\ref{fig:venn_diagram} se logra comprender la forma en la
-que est\'a constituido el Machine Learning, sobre todo, para distinguir el tambi\'en
+que est\'a constituido el Machine Learning, sobre todo, para distinguer el tambi\'en
 el llamado Deep Learning que de acuerdo con las mismas fuentes, se considera un
 tipo de aprendizaje que requiere de una maquinaria mucho m\'as pesada de lo normal,
-es decir que requiere de un coste computacional (memoria, energ\'{\i}a y
+es decir que requiere de un coste computacional (memor\'{\i}a, energ\'{\i}a y
 procesamiento) mucho mayor de lo habitual, por eso es muy com\'un ver su
 funcionamiento en servidores y generadores de im\'agenes:
 
 \begin{displayquote}
 	En cambio, los modelos demasiado complejos entra\~nan un mayor riesgo de
-	sobre-ajuste. Adem\'as, su razonamiento es m\'as dif\'{\i}cil de interpretar y es
+	sobreajuste. Adem\'as, su razonamiento es m\'as dif\'{\i}cil de interpretar y es
 	probable que sean m\'as costosos desde el punto de vista inform\'atico. Los
 	costes computacionales se expresan mediante los requisitos de memoria y el
 	tiempo de inferencia para ejecutar un modelo en datos nuevos. Estos criterios
@@ -129,7 +129,7 @@ no supervisado y aprendizaje por refuerzo.''
 \iffalse
 	\subsubsection{Manejo de dispositivos de IoT}
 
-	% mejorar esta parte
+	% mmejorar esta parte
 
 	IoT (Internet de las cosas, en ingl\'es) a pesar de no ser una parte muy com\'un,
 	cada vez en el \'ambito tecnol\'ogico se vuelve importante, ya que hace un cambio
@@ -160,9 +160,9 @@ La manera en como se conoce esto, es a trav\'es de los siguientes conceptos que
 	      en la cadena de los circuitos integrados de una m\'aquina. Normalmente tiene
 	      dos caracter\'{\i}sticas: Payload y gatillo, la primera consiste el efecto del
 	      circuito que no funciona como deber\'{\i}a y la segunda es la se\~nal que determina
-	      si la Payload se ejecutar\'a o no. La Figura~\ref{fig:circuit} utiliza un
+	      si la payload se ejecutar\'a o no. La Figura~\ref{fig:circuit} utiliza un
 	      circuito con puertas l\'ogicas AND y XOR que son usadas para gatillo y
-	      Payload respectivamente.
+	      payload respectivamente.
 
 	\item \textbf{Puertas l\'ogicas:}
 	      Para conocer lo que ocurre en la Figura~\ref{fig:circuit}, tenemos que
@@ -208,8 +208,8 @@ La manera en como se conoce esto, es a trav\'es de los siguientes conceptos que
 
 	      Y computar los par\'ametros de capacidad de prueba del programa de An\'alisis de
 	      Controlabilidad/Observabilidad Sandia comprueba la calidad de los nodos
-	      raros; la Controlabilidad describe la habilidad de establecer un valor
-	      espec\'{\i}fico de un nodo. La Observabilidad consiste en determinar los valores
+	      raros; la controlabilidad describe la habilidad de establecer un valor
+	      espec\'{\i}fico de un nodo. La observabilidad consiste en determinar los valores
 	      de un nodo controlando sus entradas y comprobando su salida\dots algo muy
 	      similar a la comprobaci\'on de la secuencia de arranque de las placas madre
 	      modernas.
@@ -237,7 +237,7 @@ comprensi\'on del estado tanto del hardware como del software.
 	\includegraphics[width=0.75\textwidth]{./pictures/adatest.png}
 	\caption{
 		\textbf{Nota:} Circuit Under Test (Circuito bajo prueba), Expected responses
-		(Respuestas esperadas), Test responses (Prueba de respuestas) y Test
+		(Respuestas esperadas), Test responeses (Prueba de respuestas) y Test
 		patterns (Pruebas de patr\'on) son los elementos y sus salidas en ingl\'es de
 		la representaci\'on de Ada Test. Tomado de \cite{Chen2023}}
 \end{figure}
@@ -261,11 +261,11 @@ comprensi\'on del estado tanto del hardware como del software.
 	\label{fig:logic}
 \end{figure}
 
-\subsection{Estado de los elementos de la ciber-seguridad}
+\subsection{Estado de los elementos de la ciberseguridad}
 
-La manera en como se logra ver los conceptos de ciber-seguridad, lo describe
-\textcite{Mosquera2019} cuando trata de referirse a reducir los fallos que se
-puedan presenciar gracias a las amenazas de la informaci\'on de un activo (en
+La manera en como se logra ver los conceptos de ciberseguridad, lo describe
+\textcite{Mosquera2019} cuando trata de referirse a reducir los fallos que
+puedan presenciarse gracias a las amenazas de la informaci\'on de un activo (en
 el contexto empresarial, se suele referir a los sistemas inform\'aticos que
 pertenecen a una organizaci\'on y que pueden ser variados):
 ``La protecci\'on de activos de informaci\'on, a trav\'es del tratamiento de amenazas
@@ -300,7 +300,7 @@ para utilizarlos para otros fines en lugar de los que son puestos.
 \subsubsection{Manejo Legislativo}
 
 Uno de los intentos que se realizaron a nivel nacional, fue el de mitigar los
-ciber-ataques por medio de las normas del c\'odigo penal colombiano, las cuales
+ciberataques por medio de las normas del c\'odigo penal colombiano, las cuales
 condenan varias de las t\'ecnicas de ataque que afectan a los ciudadanos las
 cuales incluyen suplantaci\'on de sitios web, robo de datos, hurto por medios
 inform\'aticos y otros delitos tratados por la ley. \parencite[Ley 1273 de 2009.
@@ -320,7 +320,7 @@ sistemas de informaci\'on:
 	Aparte de estos avances paulatinos, tambi\'en debe tenerse en cuenta que en el
 	transcurso de todo el a\~no 2021, el Ministerio TIC, se empe\~n\'o en capacitar
 	gratuitamente a PyMES (Peque\~nas y Medianas Empresas) en materia de
-	ciber-seguridad, esto con el fin implementar acciones para proteger la
+	ciberseguridad, esto con el fin implementar acciones para proteger la
 	informaci\'on y para lograrlo era necesario que sus equipos de trabajo
 	estuvieran en capacidad de enfrentar este reto y dar respuesta inmediata a
 	cualquier tipo de amenaza.
@@ -353,7 +353,7 @@ generan vulnerabilidades.
 	      ``bots'' los cuales cumplen las finalidades de un atacante, el cual logra
 	      acumular varios de estos ``bots'' a trav\'es troyanos o gusanos: ``Botnet
 	      tambi\'en se define como una colecci\'on de ordenadores que han sido infectados
-	      por software malicioso y los convierte en bots, drones o zombies, que se han
+	      por software malicioso y los convierte en bots, drones o zombis, que se han
 	      integrado en una colecci\'on mayor a trav\'es de una infraestructura
 	      centralizada de mando y control.'' \parencite{Rosli2019}
 
@@ -362,7 +362,7 @@ generan vulnerabilidades.
 	      luego hacer que el usuario inserte una clave para desencriptarla; las claves
 	      dadas por los atacantes requieren de una demanda otorgada por ellos, como
 	      pedir una cierta cantidad de dinero: ``Normalmente, una m\'aquina infectada
-	      por Ransomware queda ``congelada'', ya que el usuario no puede abrir ning\'un
+	      por ransomware queda ``congelada'', ya que el usuario no puede abrir ning\'un
 	      archivo, y la imagen del escritorio se utiliza para proporcionar informaci\'on
 	      sobre las demandas de los atacantes.'' \parencite{Rosli2019}
 
@@ -391,8 +391,8 @@ generan vulnerabilidades.
 	      \begin{displayquote}
 		      El delito con mayor crecimiento en el 2021, fue la violaci\'on de los datos
 		      personales, con un crecimiento de aproximadamente el 45\% con respecto al 2020,
-		      mediante la modalidad llamada ``Phishing'' donde los ciber-criminales realizan
-		      env\'{\i}os masivos de emails adjuntando enlaces a p\'aginas web fraudulentas, as\'{\i}
+		      mediante la modalidad llamada ``phishing'' donde los cibercriminales realizan
+		      env\'{\i}os masivos de emails adjuntando enlaces a p\'aginas webs fraudulentas, as\'{\i}
 		      pueden llegar a infectar el dispositivo con un archivo adjunto malicioso o
 		      ``malware'' y de esta manera roban la informaci\'on que necesitan.
 		      \parencite[INCIBE, 2010, como se cita en][]{Bueno2022}
@@ -454,7 +454,7 @@ El primero consiste en estudiar el malware sin ejecutarlo, el segundo es
 ejecutarlo para comprobar su comportamiento y el tercero, es usando las ventajas
 que ofrecen los dos anteriores de acuerdo a los contextos (si el malware no
 se puede analizar sin ejecutarlo, se puede usar el an\'alisis din\'amico, pero
-siempre en un entorno que no est\'e conectado a Internet y no cuente con
+siempre en un entorno que no est\'e conectado a internet y no cuente con
 informaci\'on cr\'{\i}tica del usuario)
 
 Estos tipos de an\'alisis logran obtener ciertos tipos de datos, en los cuales se
@@ -520,7 +520,7 @@ otorgada por los mismos autores:
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[height=0.5\textheight]{./pictures/timeline_2.png}
-	\caption{L\'{\i}nea de tiempo del t\'opico de la ciber-seguridad}
+	\caption{L\'{\i}nea de tiempo del t\'opico de la ciberseguridad}
 \end{figure}
 
 \begin{figure}[hb!]

@@ -3,7 +3,7 @@
 \subsection{Objetivo general}
 
 Crear una aplicaci\'on que tendr\'a dos finalidades, donde se combinar\'a el
-mantenimiento preventivo de hardware y la ciber-seguridad para garantizar un
+mantenimiento preventivo de hardware y la ciberseguridad para garantizar un
 funcionamiento \'optimo y seguro de los equipos de c\'omputo.
 
 \subsection{Objetivos espec\'{\i}ficos}
@@ -15,7 +15,7 @@ funcionamiento \'optimo y seguro de los equipos de c\'omputo.
 	      cr\'{\i}ticos.
 
 	\item
-	      Implementar en las t\'ecnicas de ciber-seguridad los elementos de inteligencia
+	      Implementar en las t\'ecnicas de ciberseguridad los elementos de inteligencia
 	      artificial para la detecci\'on de ligeras perturbaciones en archivos.
 
 	\item

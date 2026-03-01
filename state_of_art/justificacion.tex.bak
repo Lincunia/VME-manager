@@ -15,7 +15,7 @@ cortos, cosa que resulta costosa para los usuarios.
 Y no solo en los fallos f\'{\i}sicos por desgaste o los fallos internos inesperados,
 sino que como se vieron con las revisiones hechas por \textcite{Rathore2023} o
 \textcite{Waqar2023} (En el caso de los dispositivos m\'oviles) sobre el tema de
-la ciber-seguridad, a los que \textcite{CanoMartinez2022} considera como
+la ciberseguridad, a los que \textcite{CanoMartinez2022} considera como
 primordiales para los aspectos nacionales m\'as importantes como la econom\'{\i}a o la
 estabilidad de las empresas. Asumiendo que 53.47\% de los usuarios
 mayores son enga\~nados por mensajes que ofrecen algo, se consider\'o que se tiene
@@ -24,7 +24,7 @@ malware, adem\'as de monitorear y analizar el rendimiento del equipo para su
 mantenimiento preventivo. Todo esto junto con una gu\'{\i}a del lenguaje que se tiene
 sobre los sistemas inform\'aticos actuales de tal modo que, como lo sugiere
 \textcite{Nurul2021}, se pueda tener una idea sobre c\'omo las aplicaciones y el
-software a desarrollar funcionan en los equipos de c\'omputo.
+software a desarrollar funcionan en los equipos de c\'omputo. 
 
 Por lo tanto, la idea de la aplicaci\'on a desarrollar se basa principalmente en
 reducir los riesgos que se generan, y seg\'un lo expresa \textcite{Mosquera2019},
@@ -33,4 +33,4 @@ desconocimiento de la informaci\'on que se suele presentar por parte los nuevos
 usuarios, muchos atacantes aprovechan los vac\'{\i}os de seguridad que los presenta
 y por ende, hacerlos quedar expuestos a varias amenazas que atentan con la
 privacidad, la identidad, el estado de una organizaci\'on o las infraestructuras
-cr\'{\i}ticas. \parencite[e.g.,][]{CanoMartinez2022}
+cr\'{\i}ticas. \parencite[e.g.,][]{CanoMartinez2022} 

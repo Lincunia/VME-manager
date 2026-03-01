@@ -10,7 +10,7 @@ para hacer una gesti\'on de todo lo que se est\'a haciendo y como se refiere
 los usuarios dom\'esticos, estos deben tener cierta cultura de los elementos que
 tiene su m\'aquina, para saber las acciones inmediatas ante un problema menor y
 aplicarlas de forma sabia sin necesidad de gastar dinero en reparaciones junto
-con licencias a las que se les debe pagar en un ciertos periodos de tiempo para
+con licencias a las que se les debe pagar en un cirtos periodos de tiempo para
 su uso.
 
 Por lo tanto, se pens\'o en la idea de crear un software inspirado en los
@@ -27,7 +27,7 @@ como comenta \textcite{Hartl2023} es molesto.
 
 La versi\'on de pago estar\'a dedicada a funcionalidades m\'as sofisticadas que las
 que ofrece el software gratuito, es decir aquellas que \textcite{Singh2022} y
-\textcite{Waqar2023} comentan para dispositivos de Internet de las cosas.
+\textcite{Waqar2023} comentan para dispositivos de internet de las cosas.
 Esto es as\'{\i}, puesto que aunque el IoT cada vez se hace m\'as presente, en el uso
 dom\'estico es poco com\'un, bastante costoso y que puede tener mayor influencia
 de problemas de brechas de seguridad expuestas por \textcite{Rosli2019}. Y como
@@ -56,7 +56,7 @@ software a desarrollar del mantenimiento preventivo:
 \end{displayquote}
 
 Y en lo que se revis\'o de \textcite{Trejos2023}, se concluy\'o que el uso del
-lenguaje de programaci\'on Java ser\'{\i}a \'util para la creaci\'on de una interfaz que
+lenguaje de programac\'on Java ser\'{\i}a \'util para la creaci\'on de una interfaz que
 caracteriza su usabilidad, y el uso del lenguaje de programaci\'on C para tener
 control tanto de los elementos de bajo en la perspectiva de alto nivel. Y
 sabiendo que tales lenguajes representan una oportunidad para usar Ada Test para

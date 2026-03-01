@@ -5,12 +5,21 @@
 *.out
 
 *.cls
+
 # LaTeX beamer
 *.bcf
 *.xml
 *.snm
 *.toc
+
 # LaTeX biber
 *.bbl
 *.blg
 *.nav
+
+# Java files
+bin/
+.project
+.settings/
+target/
+lib/

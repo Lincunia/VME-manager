@@ -7,7 +7,7 @@ degradaci\'on de uso y el estropeo repentino de alg\'un componente. En principio
 se piensa que ya se deber\'{\i}a tener control de ese aspecto, pero se sigue tratando
 de manejar tal situaci\'on por la cantidad de demanda por la reparaci\'on de
 computadores tanto dom\'esticos como empresariales. Adem\'as, una de las cosas que
-\textcite{Aboaoja2022} aborda sobre la ciber-seguridad, que es una de las \'areas
+\textcite{Aboaoja2022} aborda sobre la ciberseguridad, que es una de las \'areas
 m\'as importantes para la protecci\'on de la informaci\'on de los usuarios y que
 procura evitar que los sistemas de c\'omputo tengan fallos
 
@@ -85,29 +85,29 @@ dispositivo tiende a fallar por alg\'un motivo:
 	costes de reparaci\'on ni sobre los da\~nos.
 \end{displayquote}
 
-\subsection{Situaciones relacionadas con las fallas de ciber-seguridad}
+\subsection{Situaciones relacionadas con las fallas de ciberseguridad}
 
-Por norma general, algunas veces vemos que ``ciber-seguridad'' y ``seguridad
+Por norma general, algunas veces vemos que ``ciberseguridad'' y ``seguridad
 inform\'atica'' son sin\'onimos. Sin embargo, la seguridad inform\'atica es el \'area de
 proteger la informaci\'on de los riesgos que conlleva el entorno en donde se
 encuentra y que puede tener otros formatos que no siempre est\'an relacionados
-con los equipos de c\'omputo. En cuanto a la ``ciber-seguridad'' tiene una cuesti\'on
+con los equipos de c\'omputo. En cuanto a la ``ciberseguridad'' tiene una cuesti\'on
 similar, solo que se especializa en la protecci\'on datos almacenados en sistemas
-de c\'omputo; lo que significa que la ciber-seguridad hace parte de la seguridad
-inform\'atica: ``Se entiende que la ciber-seguridad tiene como objetivo
+de c\'omputo; lo que significa que la ciberseguridad hace parte de la seguridad
+inform\'atica: ``Se entiende que la ciberseguridad tiene como objetivo
 principal la protecci\'on de la informaci\'on digital, que est\'a o es transmitida
 entre los todos los dispositivos que se encuentran interconectados, por esto,
-la ciber-seguridad est\'a en la seguridad inform\'atica''
+la ciberseguridad est\'a en la seguridad inform\'atica''
 \parencite{Mosquera2019}
 
-As\'{\i} que reconociendo lo que representa la ``ciber-seguridad'' y teniendo en
+As\'{\i} que reconociendo lo que representa la ``ciberseguridad'' y teniendo en
 cuenta que esto se aplica a diversas \'areas como lo comenta
 \textcite{CanoMartinez2022} de que la seguridad de la informaci\'on digital es
 primordial, ya que si es escasa, se pueden generar desde efectos molestos hasta
 destructivos en el aspecto pol\'{\i}tico, econ\'omico, legal, etc\'etera:
 
 \begin{displayquote}
-	En este escenario, la ciber-seguridad nacional enfrenta diferentes tensiones y
+	En este escenario, la ciberseguridad nacional enfrenta diferentes tensiones y
 	fuerzas a nivel pol\'{\i}tico, econ\'omico, social, tecnol\'ogico, legal y ecol\'ogico,
 	que demandan salir de la postura tradicional de “esperar y ver”, para
 	movilizar reflexiones y esfuerzos que permitan “delinear y actuar”.
@@ -115,7 +115,7 @@ destructivos en el aspecto pol\'{\i}tico, econ\'omico, legal, etc\'etera:
 
 Sabiendo que en diversos entornos, se pueden encontrar brechas que pueden ser
 aprovechables tanto por cualquier persona como de cualquier otro software. Una
-de las partes m\'as preocupantes es el hecho de que los Ransomware (malware que
+de las partes m\'as preocupantes es el hecho de que los ransomware (malware que
 cifra datos) sea el tipo de malware que actualmente es uno de los que son m\'as
 frecuentes: ``El Netskope Cloud Report de septiembre de 2016 revel\'o que el
 55,9\% de los archivos infectados con malware que se encuentran en las
@@ -125,7 +125,7 @@ plataforma atractiva para los atacantes.'' \parencite{Rosli2019}
 Los mismos demuestran que los problemas en cuanto a malware cada
 vez se hacen m\'as notorios, por ejemplo en la Figura~\ref{fig:report2017} se
 muestra de forma general la cantidad de incidentes relacionados con la
-ciber-seguridad en 2018. Y los mismos tambi\'en comentan que la tasa del malware
+ciberseguridad en 2018. Y los mismos tambi\'en comentan que la tasa del malware
 aument\'o a un 43.5\% del total de los incidentes ocurridos en 2018. Lo que indica
 qu\'e tan importante es el de hacer que los usuarios se encuentren con malware.
 
@@ -133,8 +133,8 @@ qu\'e tan importante es el de hacer que los usuarios se encuentren con malware.
 	\centering
 	\includegraphics[width=0.75\textwidth]{./pictures/report2017.png}
 	\caption{
-	\textbf{Nota:} Estad\'{\i}sticas de incidentes reportados en 2017 Tomado de
-	\cite{Rosli2019}
+		\textbf{Nota:} Estad\'{\i}sticas de incidentes reportados en 2017 Tomado de
+		\cite{Rosli2019}
 	}
 	\label{fig:report2017}
 \end{figure}
@@ -144,10 +144,10 @@ qu\'e tan importante es el de hacer que los usuarios se encuentren con malware.
 \subsubsection{Problemas en el aspecto de los sistemas de salud}
 
 Una de las \'areas en las que tambi\'en se logra presenciar lo comprometidas que se
-encuentra la ciber-seguridad en los sistemas sanitarios al quedar completamente
+encuentra la ciberseguridad en los sistemas sanitarios al quedar completamente
 expuestos; una prueba realizada por Google, se descubri\'o que una de sus
 inteligencias encontraron y expusieron informaci\'on cr\'{\i}tica tanto de m\'edicos
-como de pacientes. Lo que significa que los ``ciber-criminales'' pueden realizar
+como de pacientes. Lo que significa que los ``cibercriminales'' pueden realizar
 sus objetivos relacionados con el sistema sanitario:
 
 \begin{displayquote}
@@ -169,7 +169,7 @@ tambi\'en
 \subsubsection{Problemas en el IoT}
 
 A grandes rasgos, es un campo en el que objetos de uso cotidiano est\'an
-conectados a una red, que a su vez, est\'a conectada a Internet. A pesar de ser un
+conectados a una red, que a su vez, est\'a conectada a internet. A pesar de ser un
 campo en el que es poco com\'un en el uso diario, se vuelve completamente
 importante en la seguridad inform\'atica, ya que como comenta
 \textcite{Aboaoja2022}, el desarrollo del malware se volvi\'o tan sofisticado que
@@ -180,7 +180,7 @@ en una red sin el consentimiento de los usuarios.
 En el Internet de las Cosas al estar repleto de tantos computadores, se requiere
 entonces de una cantidad de recursos masiva para la protecci\'on de la informaci\'on
 que se utiliza, y como el malware cada vez se hace m\'as silencioso ante la
-protecci\'on, cosa que es muy peligroso para entidades que usan el IoT de forma
+protecci\'on, cosa que es my peligroso para entidades que usan el IoT de forma
 com\'un y se tenga que gastar m\'as 6.000 millones de d\'olares para sistemas de
 protecci\'on de la informaci\'on bastante avanzados:
 
@@ -210,9 +210,9 @@ tecnolog\'{\i}as de forma amplia.
 	\centering
 	\includegraphics[width=0.75\textwidth]{./pictures/delitos.png}
 	\caption{
-	\textbf{Nota:} Esta gr\'afica representa el delito m\'as denunciado seg\'un el
-	balance del ciber-crimen en Colombia en 2017, donde se hab\'{\i}an recibido
-	11.618 denuncias. Tomado de \cite{Mosquera2019}
+		\textbf{Nota:} Esta gr\'afica representa el delito m\'as denunciado seg\'un el
+		balance del cibercrimen en Colombia en 2017, donde se hab\'{\i}an recibido
+		11.618 denuncias. Tomado de \cite{Mosquera2019}
 	}
 	\label{fig:delitos}
 \end{figure}
