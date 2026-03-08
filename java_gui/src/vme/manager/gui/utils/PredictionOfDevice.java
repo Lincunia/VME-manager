@@ -1,13 +1,19 @@
 package vme.manager.gui.utils;
 
+import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PredictionOfDevice extends JPanel {
 
-    public PredictionOfDevice()
+    public PredictionOfDevice(){
+        add(setLabel("En desarrollo", 18));
+    }
+
+    private JLabel setLabel(String str, int size)
     {
-        add(new JLabel("¿Tú qué crees que soy?\n"+
-					"¿El doctor Manhatan de la CPU?"));
+        JLabel label = new JLabel(str);
+        label.setFont(new Font("sans-serif", Font.PLAIN, size));
+        return label;
     }
 }
