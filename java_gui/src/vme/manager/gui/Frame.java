@@ -1,6 +1,7 @@
 package vme.manager.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -31,6 +32,7 @@ public class Frame extends JFrame {
     public Frame()
     {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setPreferredSize(new Dimension(700, 400));
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
@@ -41,7 +43,7 @@ public class Frame extends JFrame {
         bottomPanel = new JPanel();
         add(bottomPanel, BorderLayout.SOUTH);
 
-        buttonConfig = new JButton(setIcon("./resources/images/config.png", 20));
+        buttonConfig = new JButton(setIcon("./resources/icons/config.png", 20));
         buttonConfig.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e)
             {
@@ -53,7 +55,7 @@ public class Frame extends JFrame {
             }
         });
         titlePanel.add(buttonConfig);
-        buttonLogin = new JButton(setIcon("./resources/images/user.png", 20));
+        buttonLogin = new JButton(setIcon("./resources/icons/user.png", 20));
 		buttonLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e)
             {
@@ -72,23 +74,23 @@ public class Frame extends JFrame {
         fileAnalysis = new FileAnalysis();
         tabbedPane.setFont(new Font("sans-serif", Font.PLAIN, 20));
 
-        tabbedPane.addTab("Análisis", setIcon("./icons/tab_icon.png", 10), fileAnalysis);
+        tabbedPane.addTab("Análisis", setIcon("./resources/icons/tab_icon.png", 10), fileAnalysis);
 
         networkState = new NetworkState();
-        tabbedPane.addTab("Red", setIcon("./icons/tab_icon.png", 10), networkState);
+        tabbedPane.addTab("Red", setIcon("./resources/icons/tab_icon.png", 10), networkState);
 
         hardwareIntegrity = new HardwareIntegrity();
-        tabbedPane.addTab("Hardware", setIcon("./icons/tab_icon.png", 10), hardwareIntegrity);
+        tabbedPane.addTab("Hardware", setIcon("./resources/icons/tab_icon.png", 10), hardwareIntegrity);
 
         deviceCleaning = new DeviceCleaning();
-        tabbedPane.addTab("Limpieza", setIcon("./icons/tab_icon.png", 10), deviceCleaning);
+        tabbedPane.addTab("Limpieza", setIcon("./resources/icons/tab_icon.png", 10), deviceCleaning);
 
         predictionOfDevice = new PredictionOfDevice();
-        tabbedPane.addTab("Pronósticos *", setIcon("./icons/tab_icon.png", 10), predictionOfDevice);
+        tabbedPane.addTab("Pronósticos *", setIcon("./resources/icons/tab_icon.png", 10), predictionOfDevice);
         tabbedPane.setEnabledAt(4, false);
 
         optimizationMethodology = new OptimizationMethodology();
-        tabbedPane.addTab("Optimización *", setIcon("./icons/tab_icon.png", 10), optimizationMethodology);
+        tabbedPane.addTab("Optimización *", setIcon("./resources/icons/tab_icon.png", 10), optimizationMethodology);
         tabbedPane.setEnabledAt(5, false);
 
         tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
