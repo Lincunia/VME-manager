@@ -1,19 +1,11 @@
 package vme.manager.gui.utils;
 
-import java.awt.Font;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 
-public class PredictionOfDevice extends JPanel {
+public class PredictionOfDevice extends ContainerBoilerPlate {
 
-    public PredictionOfDevice(){
-        add(setLabel("En desarrollo", 18));
-    }
-
-    private JLabel setLabel(String str, int size)
-    {
-        JLabel label = new JLabel(str);
-        label.setFont(new Font("sans-serif", Font.PLAIN, size));
-        return label;
+    public PredictionOfDevice(JTabbedPane jTabbedPane){
+        super("sans-serif", 20, jTabbedPane);
+        getPanelTop().add(setLabel("En desarrollo"));
     }
 }

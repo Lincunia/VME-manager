@@ -8,7 +8,7 @@
 
 # LaTeX beamer
 *.bcf
-*.xml
+beamer_presentation/*.xml
 *.snm
 *.toc
 
