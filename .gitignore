@@ -16,12 +16,3 @@ beamer_presentation/*.xml
 *.bbl
 *.blg
 *.nav
-
-# Java files
-bin/
-build/
-.project
-.settings/
-target/
-lib/
-*.jar

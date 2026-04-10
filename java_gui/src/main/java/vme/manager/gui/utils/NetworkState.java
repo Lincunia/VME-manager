@@ -20,16 +20,17 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
-public class NetworkState extends ContainerBoilerPlate {
+
+
+public class NetworkState extends ContainerUtil {
     private JPanel
         panelLatency,
         panelDownload,
         panelUpload;
-    private JButton
-        buttonMeasureMetrics;
-    public NetworkState(JTabbedPane jTabbedPane)
+    private JButton buttonMeasureMetrics;
+	public NetworkState(JTabbedPane jTabbedPane)
     {
-        super("sans-serif", 20, jTabbedPane);
+        super( jTabbedPane);
 
         getPanelCenter().setLayout(new BoxLayout(
             getPanelCenter(),
@@ -63,8 +64,7 @@ public class NetworkState extends ContainerBoilerPlate {
         textFieldCount.setText("5");
         panelLatency.add(textFieldCount);
         buttonMeasureMetrics = setButton("Medir métricas");
-        buttonMeasureMetrics.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt)
+        buttonMeasureMetrics.addActionListener((ActionEvent evt) ->
             {
                 String host = textFieldHost.getText();
                 int port = parseFields(textFieldPort.getText());
@@ -78,7 +78,7 @@ public class NetworkState extends ContainerBoilerPlate {
                     System.out.println("All pings failed.");
                 }
             }
-        });
+        );
 
         getPanelCenter().add(panelLatency);
     }

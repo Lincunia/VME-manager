@@ -1,36 +1,34 @@
-package vme.manager.gui.utils;
+package vme.manager.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
-public abstract class ContainerBoilerPlate extends JPanel {
+import vme.manager.gui.misc.OSFactory;
+import vme.manager.gui.misc.OSUtils;
+
+public abstract class ContainerBoilerPlate extends JComponent {
     private final String fontStyle;
     private final int fontSize;
-    private JPanel
-        panelTop,
-        panelBottom,
-        panelCenter,
-        panelLeft,
-        panelRight;
-    private static JTabbedPane tabbedPaneParent;
-
-    public ContainerBoilerPlate(String fontStyle, int fontSize, JTabbedPane jTabbedPane)
-    {
-        this.fontStyle = fontStyle;
-        this.fontSize = fontSize;
-        this.tabbedPaneParent = jTabbedPane;
-
+    private final JPanel panelTop,
+            panelBottom,
+            panelCenter,
+            panelLeft,
+            panelRight;
+	private static OSUtils osUtils;
+    public ContainerBoilerPlate() {
 		/*
-        JScrollPane scrollPane = new JScrollPane(this);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		*/
+		 * Configuración estática
+		 */
+        this.fontStyle = "sans-serif";
+        this.fontSize = 16;
+		osUtils = OSFactory.create();
+
         setLayout(new BorderLayout());
 
         panelTop = new JPanel();
@@ -44,47 +42,53 @@ public abstract class ContainerBoilerPlate extends JPanel {
         panelRight = new JPanel();
         add(panelRight, BorderLayout.EAST);
     }
-    public JButton setButton(String str)
-    {
+
+    public JButton setButton(String str) {
         JButton btn = new JButton(str);
         btn.setFont(new Font(fontStyle, Font.PLAIN, fontSize));
         return btn;
     }
-    public JLabel setLabel(String str)
-    {
+
+    public JLabel setLabel(String str) {
         JLabel label = new JLabel(str);
         label.setFont(new Font(fontStyle, Font.PLAIN, fontSize));
         return label;
     }
-    public JTextField setTextField(int columns)
-    {
+
+    public JTextField setTextField(int columns) {
         JTextField textField = new JTextField();
         textField.setFont(new Font(fontStyle, Font.PLAIN, fontSize));
-		textField.setColumns(columns);
+        textField.setColumns(columns);
         return textField;
     }
-    public JPanel getPanelTop()
-    {
+
+	public JCheckBox setCheckBox(String str){
+		JCheckBox checkBox = new JCheckBox(str);
+		checkBox.setFont(new Font(fontStyle, Font.PLAIN, fontSize));
+		return checkBox;
+	}
+
+    public JPanel getPanelTop() {
         return panelTop;
     }
-    public JPanel getPanelLeft()
-    {
+
+    public JPanel getPanelLeft() {
         return panelLeft;
     }
-    public JPanel getPanelRight()
-    {
+
+    public JPanel getPanelRight() {
         return panelRight;
     }
-    public JPanel getPanelBottom()
-    {
+
+    public JPanel getPanelBottom() {
         return panelBottom;
     }
-    public JPanel getPanelCenter()
-    {
+
+    public JPanel getPanelCenter() {
         return panelCenter;
     }
-    public static JTabbedPane getTabbedPaneParent()
-    {
-        return tabbedPaneParent;
-    }
+
+	public OSUtils getOsUtils() {
+		return osUtils;
+	}
 }

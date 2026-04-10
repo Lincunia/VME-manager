@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.Random;
 import javax.swing.DefaultListModel;
@@ -16,63 +15,54 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 
-public class FileAnalysis extends ContainerBoilerPlate {
-    private JButton buttonAnalizar;
-    private JButton buttonLimpiar;
-    private JPanel
-        panelGrafico,
-        panelBasura;
+public class FileAnalysis extends ContainerUtil {
+    private JButton buttonAnalyze;
+    private JButton buttonClean;
+    private JPanel panelGraphics;
 
     private JSplitPane splitPaneFiles;
     private DefaultListModel<String> defaultListModelFilesFound;
     private JList<String> jListFilesFound;
 
     private Random random;
-    public FileAnalysis(JTabbedPane jTabbedPane)
-    {
-        super("sans-serif", 20, jTabbedPane);
 
-        random = new Random();
+    public FileAnalysis(JTabbedPane jTabbedPane) {
+        super(jTabbedPane);
 
+        
         defaultListModelFilesFound = new DefaultListModel<>();
         jListFilesFound = new JList<>(defaultListModelFilesFound);
-		jListFilesFound.setPreferredSize(new Dimension(50, 400));
+		jListFilesFound.setPreferredSize(new Dimension(90, 300));
 
-        panelGrafico = new JPanel();
-		panelGrafico.setPreferredSize(new Dimension(400, 400));
-
+        panelGraphics = new JPanel();
+        panelGraphics.setPreferredSize(new Dimension(400, 300));
         splitPaneFiles = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
-		splitPaneFiles.setLeftComponent(new JScrollPane(jListFilesFound));
-		splitPaneFiles.setRightComponent(new JScrollPane(panelGrafico));
+        splitPaneFiles.setLeftComponent(new JScrollPane(jListFilesFound));
+        splitPaneFiles.setRightComponent(new JScrollPane(panelGraphics));
         splitPaneFiles.setResizeWeight(0.5);
         splitPaneFiles.setContinuousLayout(true);
 
         getPanelCenter().add(splitPaneFiles);
 
-        buttonAnalizar = setButton("Iniciar análisis");
-        buttonAnalizar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt)
-            {
-                mostrarGrafico();
-                analizarSistema();
-            }
-        });
-        getPanelBottom().add(buttonAnalizar);
+        buttonAnalyze = setButton("Iniciar análisis");
+        buttonAnalyze.addActionListener((ActionEvent evt) -> {
+            mostrarGrafico();
+            analizarSistema();
+        }
+        );
+        getPanelBottom().add(buttonAnalyze);
 
-        buttonLimpiar = setButton("Ir a Limpieza");
-        buttonLimpiar.setEnabled(false);
-		buttonLimpiar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt)
-            {
-				getTabbedPaneParent().setSelectedIndex(3);
-            }
+        buttonClean = setButton("Ir a Limpieza");
+        buttonClean.setEnabled(false);
+        buttonClean.addActionListener((ActionEvent evt) -> {
+            getTabbedPaneParent().setSelectedIndex(3);
         });
-        getPanelBottom().add(buttonLimpiar);
+        getPanelBottom().add(buttonClean);
     }
 
-    private void analizarSistema()
-    {
+    private void analizarSistema() {
         defaultListModelFilesFound.clear();
+        random = new Random();
 
         boolean virusEncontrado = false;
 
@@ -95,28 +85,26 @@ public class FileAnalysis extends ContainerBoilerPlate {
 
         if (virusEncontrado) {
             JOptionPane.showMessageDialog(
-                null,
-                "Sistema en riesgo",
-                "Alerta",
-                JOptionPane.WARNING_MESSAGE);
-            buttonLimpiar.setEnabled(true);
+                    null,
+                    "Sistema en riesgo",
+                    "Alerta",
+                    JOptionPane.WARNING_MESSAGE);
+            buttonClean.setEnabled(true);
             return;
         }
         JOptionPane.showMessageDialog(
-            null,
-            "Sistema seguro",
-            "Información",
-            JOptionPane.INFORMATION_MESSAGE);
-        buttonLimpiar.setEnabled(true);
+                null,
+                "Sistema seguro",
+                "Información",
+                JOptionPane.INFORMATION_MESSAGE);
+        buttonClean.setEnabled(true);
     }
 
-    private void mostrarGrafico()
-    {
-        panelGrafico.removeAll();
+    private void mostrarGrafico() {
+        panelGraphics.removeAll();
 
         JPanel grafico = new JPanel() {
-            protected void paintComponent(Graphics g)
-            {
+            protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 String fileSearch = getFileStart();
                 if (fileSearch.isEmpty()) {
@@ -128,10 +116,10 @@ public class FileAnalysis extends ContainerBoilerPlate {
                 long libre = disco.getFreeSpace();
                 long usado = total - libre;
 
-                if (total == 0)
+                if (total == 0) {
                     return; // evitar error
-
-                int anguloUsado = (int)((double)usado / total * 360);
+                }
+                int anguloUsado = (int) ((double) usado / total * 360);
 
                 // Gráfico
                 g.setColor(Color.RED);
@@ -147,17 +135,16 @@ public class FileAnalysis extends ContainerBoilerPlate {
             }
         };
 
-        grafico.setPreferredSize(panelGrafico.getSize());
+        grafico.setPreferredSize(panelGraphics.getSize());
 
-        panelGrafico.setLayout(new java.awt.BorderLayout());
-        panelGrafico.add(grafico, java.awt.BorderLayout.CENTER);
+        panelGraphics.setLayout(new java.awt.BorderLayout());
+        panelGraphics.add(grafico, java.awt.BorderLayout.CENTER);
 
-        panelGrafico.revalidate();
-        panelGrafico.repaint();
+        panelGraphics.revalidate();
+        panelGraphics.repaint();
     }
 
-    private String getFileStart()
-    {
+    private String getFileStart() {
         String osName = System.getProperty("os.name").toLowerCase();
         String fileSearch = "";
         if (osName.contains("win")) {

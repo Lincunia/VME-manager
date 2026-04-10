@@ -2,11 +2,10 @@ package vme.manager.gui.utils;
 
 import javax.swing.JTabbedPane;
 
-public class DeviceCleaning extends ContainerBoilerPlate {
+public class DeviceCleaning extends ContainerUtil {
     public DeviceCleaning(JTabbedPane jTabbedPane)
     {
-        super("sans-serif", 20, jTabbedPane);
+        super(jTabbedPane);
         getPanelTop().add(setLabel("En desarrollo"));
     }
-
 }
