@@ -6,6 +6,5 @@ public class HardwareIntegrity extends ContainerUtil {
 	public HardwareIntegrity(JTabbedPane jTabbedPane)
     {
         super( jTabbedPane);
-        getPanelTop().add(setLabel("En desarrollo"));
     }
 }

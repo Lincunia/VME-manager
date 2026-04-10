@@ -44,15 +44,15 @@ public class FileAnalysis extends ContainerUtil {
 
         getPanelCenter().add(splitPaneFiles);
 
-        buttonAnalyze = setButton("Iniciar análisis");
+		buttonAnalyze = new JButton("Iniciar análisis");
         buttonAnalyze.addActionListener((ActionEvent evt) -> {
             mostrarGrafico();
-            analizarSistema();
+            analyzeSystem();
         }
         );
         getPanelBottom().add(buttonAnalyze);
 
-        buttonClean = setButton("Ir a Limpieza");
+		buttonClean = new JButton("Ir a Limpieza");
         buttonClean.setEnabled(false);
         buttonClean.addActionListener((ActionEvent evt) -> {
             getTabbedPaneParent().setSelectedIndex(3);
@@ -60,7 +60,7 @@ public class FileAnalysis extends ContainerUtil {
         getPanelBottom().add(buttonClean);
     }
 
-    private void analizarSistema() {
+    private void analyzeSystem() {
         defaultListModelFilesFound.clear();
         random = new Random();
 
@@ -72,9 +72,9 @@ public class FileAnalysis extends ContainerUtil {
             return;
         }
 
-        File carpeta = new File(fileSearch);
+        File folderStart = new File(fileSearch);
 
-        for (File file : carpeta.listFiles()) {
+        for (File file : folderStart.listFiles()) {
             if (random.nextInt(10) >= 2) {
                 defaultListModelFilesFound.addElement("[OK] " + file.getName());
                 continue;
@@ -144,6 +144,13 @@ public class FileAnalysis extends ContainerUtil {
         panelGraphics.repaint();
     }
 
+	/*
+	 * TODO: Como tenemos una clase para identificar el tipo de sistema
+	 * operativo y a su vez, los métodos para analizar un sistema están ya
+	 * analizados de un modo diferente, entonces se tiene que quitar esta
+	 * función o hacer algo distinto con ella para que todos los casos
+	 * funcionen como debe de ser
+	 */
     private String getFileStart() {
         String osName = System.getProperty("os.name").toLowerCase();
         String fileSearch = "";

@@ -7,7 +7,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 
 import vme.manager.gui.misc.OSFactory;
 import vme.manager.gui.misc.OSUtils;
@@ -27,6 +29,7 @@ public abstract class ContainerBoilerPlate extends JComponent {
 		 */
         this.fontStyle = "sans-serif";
         this.fontSize = 16;
+		setStyle();
 		osUtils = OSFactory.create();
 
         setLayout(new BorderLayout());
@@ -43,29 +46,23 @@ public abstract class ContainerBoilerPlate extends JComponent {
         add(panelRight, BorderLayout.EAST);
     }
 
-    public JButton setButton(String str) {
-        JButton btn = new JButton(str);
-        btn.setFont(new Font(fontStyle, Font.PLAIN, fontSize));
-        return btn;
-    }
+	private void setStyle(){
+		Font fuenteGlobal = new Font(fontStyle, Font.PLAIN, fontSize);
 
-    public JLabel setLabel(String str) {
-        JLabel label = new JLabel(str);
-        label.setFont(new Font(fontStyle, Font.PLAIN, fontSize));
-        return label;
-    }
-
-    public JTextField setTextField(int columns) {
-        JTextField textField = new JTextField();
-        textField.setFont(new Font(fontStyle, Font.PLAIN, fontSize));
-        textField.setColumns(columns);
-        return textField;
-    }
-
-	public JCheckBox setCheckBox(String str){
-		JCheckBox checkBox = new JCheckBox(str);
-		checkBox.setFont(new Font(fontStyle, Font.PLAIN, fontSize));
-		return checkBox;
+        UIManager.put("Button.font", fuenteGlobal);
+        UIManager.put("Label.font", fuenteGlobal);
+        UIManager.put("TextField.font", fuenteGlobal);
+        UIManager.put("TextArea.font", fuenteGlobal);
+        UIManager.put("CheckBox.font", fuenteGlobal);
+        UIManager.put("RadioButton.font", fuenteGlobal);
+        UIManager.put("ComboBox.font", fuenteGlobal);
+        UIManager.put("List.font", fuenteGlobal);
+        UIManager.put("Table.font", fuenteGlobal);
+        UIManager.put("Tree.font", fuenteGlobal);
+        UIManager.put("TabbedPane.font", fuenteGlobal);
+        UIManager.put("Menu.font", fuenteGlobal);
+        UIManager.put("MenuItem.font", fuenteGlobal);
+		UIManager.put("defaultFont", fuenteGlobal);
 	}
 
     public JPanel getPanelTop() {

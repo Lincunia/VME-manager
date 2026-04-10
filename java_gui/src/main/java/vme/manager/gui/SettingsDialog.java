@@ -32,7 +32,7 @@ public class SettingsDialog extends JDialog {
         super(parent, modal);
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
-		setTitle("Configuración de VME-manager");
+	setTitle("Configuración de VME-manager");
 
         osUtils = OSFactory.create();
 
@@ -49,18 +49,18 @@ public class SettingsDialog extends JDialog {
 		innerContainer.getPanelCenter().setLayout(new GridLayout(4,1));
 		innerContainer.getPanelBottom().setLayout(new FlowLayout());
 
-        innerContainer.getPanelTop().add(
-            innerContainer.setLabel("Configuración"));
+        //innerContainer.getPanelTop().add(
+        //    innerContainer.setLabel("Configuración"));
         add(innerContainer);
 
-        buttonSave = innerContainer.setButton("Guardar");
+		buttonSave = new JButton("Guardar");
         buttonSave.addActionListener((ActionEvent e) -> {
             save();
             this.dispose();
         });
         innerContainer.getPanelBottom().add(buttonSave);
 
-        checkBoxStartUp = innerContainer.setCheckBox("Iniciar al encender el equipo");
+		checkBoxStartUp = new JCheckBox("Iniciar al encender el equipo");
         innerContainer.getPanelCenter().add(checkBoxStartUp);
 
         comboBoxLanguage = new JComboBox<>();
