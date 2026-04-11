@@ -1,5 +1,7 @@
 LINCUNIA:
-1. Implement the network commands on the terminal
+1. Implementar comandos de red de la terminal para los sistemas POSIX
+2. Implementar el startup para sistemas POSIX
 
 RYZEN:
+1. Modificar la gráfica
 2. Implement the Markov chains to find malware

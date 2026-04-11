@@ -2,13 +2,8 @@ package vme.manager.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 import vme.manager.gui.misc.OSFactory;
@@ -22,15 +17,14 @@ public abstract class ContainerBoilerPlate extends JComponent {
             panelCenter,
             panelLeft,
             panelRight;
-	private static OSUtils osUtils;
+	private static final OSUtils osUtils = OSFactory.create();
     public ContainerBoilerPlate() {
 		/*
 		 * Configuración estática
 		 */
-        this.fontStyle = "sans-serif";
+        this.fontStyle = "IosevkaTermSlab Nerd Font Mono";
         this.fontSize = 16;
 		setStyle();
-		osUtils = OSFactory.create();
 
         setLayout(new BorderLayout());
 

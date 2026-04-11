@@ -116,7 +116,7 @@ public class NetworkState extends ContainerUtil {
             } else {
                 output = "Los pings fallaron";
             }
-            textAreaLatency.setText(textAreaLatency.getText() + "\n" + output);
+			textAreaLatency.append("\n" + output);
         });
         getPanelRight().add(buttonMsrLatency);
 
@@ -140,7 +140,7 @@ public class NetworkState extends ContainerUtil {
             } else {
                 pingMessage = "Ping " + (i + 1) + ": fallido\n";
             }
-            textAreaLatency.setText(textAreaLatency.getText() + pingMessage);
+            textAreaLatency.append(pingMessage);
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {

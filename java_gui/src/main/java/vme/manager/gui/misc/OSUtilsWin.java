@@ -35,4 +35,13 @@ public class OSUtilsWin implements OSUtils {
             + "\\\"\"";
         Runtime.getRuntime().exec(command); */
     }
+	public String getMemInf() throws Exception
+	{
+		String inf = "";
+		return inf;
+	}
+	public String getCPUInf() throws Exception {
+		String inf = "";
+		return inf;
+	}
 }
