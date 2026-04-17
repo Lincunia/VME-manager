@@ -1,14 +1,17 @@
 package vme.manager.gui.misc;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 
 public class OSUtilsWin implements OSUtils {
+    private ProcessBuilder pb;
     public void setEnableStartup(boolean state) throws IOException, URISyntaxException
     {
         if (!state) {
-            ProcessBuilder pb = new ProcessBuilder("reg", "delete",
+            pb = new ProcessBuilder("reg", "delete",
                 "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
                 "/v", "AntiVirus",
                 "/f");
@@ -21,7 +24,7 @@ public class OSUtilsWin implements OSUtils {
                 .getLocation()
                 .toURI())
                              .getPath();
-        ProcessBuilder pb = new ProcessBuilder("reg", "add",
+        pb = new ProcessBuilder("reg", "add",
             "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
             "/v", "AntiVirus",
             "/t", "REG_SZ",
@@ -35,13 +38,34 @@ public class OSUtilsWin implements OSUtils {
             + "\\\"\"";
         Runtime.getRuntime().exec(command); */
     }
-	public String getMemInf() throws Exception
-	{
-		String inf = "";
-		return inf;
-	}
-	public String getCPUInf() throws Exception {
-		String inf = "";
-		return inf;
-	}
+    public String getMemInf() throws Exception
+    {
+        String inf = "";
+        pb = new ProcessBuilder("wmic", "memorychip", "get");
+        BufferedReader reader = new BufferedReader(
+            new InputStreamReader(
+                pb
+                    .start()
+                    .getInputStream()));
+        StringBuilder builder = new StringBuilder();
+        while ((inf = reader.readLine()) != null) {
+            builder.append(inf + '\n');
+        }
+        return builder.toString();
+    }
+    public String getCPUInf() throws Exception
+    {
+        String inf = "";
+        pb = new ProcessBuilder("wmic", "cpu", "get");
+        BufferedReader reader = new BufferedReader(
+            new InputStreamReader(
+                pb
+                    .start()
+                    .getInputStream()));
+        StringBuilder builder = new StringBuilder();
+        while ((inf = reader.readLine()) != null) {
+            builder.append(inf + '\n');
+        }
+        return builder.toString();
+    }
 }

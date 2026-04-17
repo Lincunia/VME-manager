@@ -5,43 +5,48 @@ import java.awt.Font;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
-
+import javax.swing.border.EmptyBorder;
 import vme.manager.gui.misc.OSFactory;
 import vme.manager.gui.misc.OSUtils;
 
 public abstract class ContainerBoilerPlate extends JComponent {
-    private final String fontStyle;
-    private final int fontSize;
     private final JPanel panelTop,
-            panelBottom,
-            panelCenter,
-            panelLeft,
-            panelRight;
-	private static final OSUtils osUtils = OSFactory.create();
-    public ContainerBoilerPlate() {
-		/*
-		 * Configuración estática
-		 */
-        this.fontStyle = "IosevkaTermSlab Nerd Font Mono";
-        this.fontSize = 16;
-		setStyle();
+        panelBottom,
+        panelCenter,
+        panelLeft,
+        panelRight;
+    private static final OSUtils osUtils = OSFactory.create();
 
+    public ContainerBoilerPlate()
+    {
+        setFontGlobally();
         setLayout(new BorderLayout());
 
+        // Crear paneles con espaciado
         panelTop = new JPanel();
+        panelTop.setBorder(new EmptyBorder(5, 5, 5, 5));
         add(panelTop, BorderLayout.NORTH);
+
         panelBottom = new JPanel();
+        panelBottom.setBorder(new EmptyBorder(5, 5, 5, 5));
         add(panelBottom, BorderLayout.SOUTH);
-        panelCenter = new JPanel();
+
+        panelCenter = new JPanel(new BorderLayout()); // Cambiar a BorderLayout
+        panelCenter.setBorder(new EmptyBorder(5, 5, 5, 5));
         add(panelCenter, BorderLayout.CENTER);
+
         panelLeft = new JPanel();
+        panelLeft.setBorder(new EmptyBorder(5, 5, 5, 5));
         add(panelLeft, BorderLayout.WEST);
+
         panelRight = new JPanel();
+        panelRight.setBorder(new EmptyBorder(5, 5, 5, 5));
         add(panelRight, BorderLayout.EAST);
     }
 
-	private void setStyle(){
-		Font fuenteGlobal = new Font(fontStyle, Font.PLAIN, fontSize);
+    private void setFontGlobally()
+    {
+        Font fuenteGlobal = new Font("sans-serif", Font.PLAIN, 16);
 
         UIManager.put("Button.font", fuenteGlobal);
         UIManager.put("Label.font", fuenteGlobal);
@@ -56,30 +61,37 @@ public abstract class ContainerBoilerPlate extends JComponent {
         UIManager.put("TabbedPane.font", fuenteGlobal);
         UIManager.put("Menu.font", fuenteGlobal);
         UIManager.put("MenuItem.font", fuenteGlobal);
-		UIManager.put("defaultFont", fuenteGlobal);
-	}
+        UIManager.put("defaultFont", fuenteGlobal);
+        UIManager.put("TitledBorder.font", fuenteGlobal);
+    }
 
-    public JPanel getPanelTop() {
+    public JPanel getPanelTop()
+    {
         return panelTop;
     }
 
-    public JPanel getPanelLeft() {
+    public JPanel getPanelLeft()
+    {
         return panelLeft;
     }
 
-    public JPanel getPanelRight() {
+    public JPanel getPanelRight()
+    {
         return panelRight;
     }
 
-    public JPanel getPanelBottom() {
+    public JPanel getPanelBottom()
+    {
         return panelBottom;
     }
 
-    public JPanel getPanelCenter() {
+    public JPanel getPanelCenter()
+    {
         return panelCenter;
     }
 
-	public OSUtils getOsUtils() {
-		return osUtils;
-	}
+    public OSUtils getOsUtils()
+    {
+        return osUtils;
+    }
 }

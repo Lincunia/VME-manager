@@ -29,14 +29,14 @@ public class DeviceCleaning extends ContainerUtil {
     {
         defaultListModelTempFiles = new DefaultListModel<>();
 
-		jListGarbageFiles = new JList<>(defaultListModelTempFiles);
-		jListGarbageFiles.setVisibleRowCount(-1);
-		getPanelCenter().setLayout(new GridLayout(1, 1));
-		getPanelCenter().add(new JScrollPane(jListGarbageFiles));
+        jListGarbageFiles = new JList<>(defaultListModelTempFiles);
+        jListGarbageFiles.setVisibleRowCount(-1);
+        getPanelCenter().setLayout(new GridLayout(1, 1));
+        getPanelCenter().add(new JScrollPane(jListGarbageFiles));
 
         getPanelBottom().setLayout(new FlowLayout());
 
-		buttonDelete = new JButton("Eliminar");
+        buttonDelete = new JButton("Eliminar");
         buttonDelete.addActionListener((ActionEvent e) -> {
             int confirm = JOptionPane.showConfirmDialog(
                 this,
@@ -47,16 +47,15 @@ public class DeviceCleaning extends ContainerUtil {
                 return;
             }
             int deletedFiles = deleteGarbage();
-            JOptionPane.showMessageDialog(this,
-                "Archivos eliminados: " + deletedFiles);
+            JOptionPane.showMessageDialog(this, "Archivos eliminados: " + deletedFiles);
             checkStorage();
         });
         getPanelBottom().add(buttonDelete);
 
-		labelFreed = new JLabel();
+        labelFreed = new JLabel();
         getPanelBottom().add(labelFreed);
 
-		labelCleaning = new JLabel();
+        labelCleaning = new JLabel();
         getPanelBottom().add(labelCleaning);
 
         progressBarCleanning = new JProgressBar();
@@ -106,7 +105,7 @@ public class DeviceCleaning extends ContainerUtil {
     {
         int deletedFiles = 0;
         File fileRef;
-		int dlmtfSize = defaultListModelTempFiles.size();
+        int dlmtfSize = defaultListModelTempFiles.size();
 
         for (int i = 0; i < dlmtfSize; i++) {
             fileRef = new File(defaultListModelTempFiles.getElementAt(i));
@@ -123,6 +122,9 @@ public class DeviceCleaning extends ContainerUtil {
     public int deleteDirectory(File directory)
     {
         int deletedDirectories = 0;
+		if(directory.listFiles() == null){
+			return deletedDirectories;
+		}
         for (File file : directory.listFiles()) {
             if (file.delete()) {
                 deletedDirectories++;
@@ -139,10 +141,10 @@ public class DeviceCleaning extends ContainerUtil {
 
     public void checkStorage()
     {
-		/*
-        double storageToFree = (loadGarbage() / (1024 * 1024));
-		System.out.println(storageToFree);
-		*/
+        /*
+double storageToFree = (loadGarbage() / (1024 * 1024));
+        System.out.println(storageToFree);
+        */
         labelFreed.setText("Espacio a liberar: " + loadGarbage() + " B");
         labelCleaning.setText("Escaneo completado");
     }

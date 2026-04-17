@@ -1,6 +1,5 @@
 package vme.manager.gui.utils;
 
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
@@ -19,7 +18,6 @@ public class HardwareIntegrity extends ContainerUtil {
         textAreaTest = new JTextArea();
         textAreaTest.setEditable(false);
         getPanelCenter().setLayout(new GridLayout());
-		getPanelCenter().setPreferredSize(new Dimension(500, 300));
         getPanelCenter().add(new JScrollPane(textAreaTest));
     }
     public void checkSystemInformation()
