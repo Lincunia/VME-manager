@@ -41,6 +41,7 @@ public class Frame extends JFrame {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+		setTitle("VME manager - UC");
         setIconImage(new ImageIcon("./resources/icons/tab_icon.png").getImage());
         setLayout(new BorderLayout());
 
@@ -126,4 +127,8 @@ public class Frame extends JFrame {
         Image img = imageIcon.getImage().getScaledInstance(size, size, Image.SCALE_SMOOTH);
         return new ImageIcon(img);
     }
+
+	public static JTabbedPane getTabbedpane() {
+		return tabbedPane;
+	}
 }

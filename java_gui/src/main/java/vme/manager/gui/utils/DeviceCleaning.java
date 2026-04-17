@@ -24,17 +24,14 @@ public class DeviceCleaning extends ContainerUtil {
     {
         super(jTabbedPane);
         initComponents();
+        setupLayout();
     }
+
     private void initComponents()
     {
         defaultListModelTempFiles = new DefaultListModel<>();
-
         jListGarbageFiles = new JList<>(defaultListModelTempFiles);
         jListGarbageFiles.setVisibleRowCount(-1);
-        getPanelCenter().setLayout(new GridLayout(1, 1));
-        getPanelCenter().add(new JScrollPane(jListGarbageFiles));
-
-        getPanelBottom().setLayout(new FlowLayout());
 
         buttonDelete = new JButton("Eliminar");
         buttonDelete.addActionListener((ActionEvent e) -> {
@@ -50,15 +47,21 @@ public class DeviceCleaning extends ContainerUtil {
             JOptionPane.showMessageDialog(this, "Archivos eliminados: " + deletedFiles);
             checkStorage();
         });
-        getPanelBottom().add(buttonDelete);
 
         labelFreed = new JLabel();
-        getPanelBottom().add(labelFreed);
-
         labelCleaning = new JLabel();
-        getPanelBottom().add(labelCleaning);
-
         progressBarCleanning = new JProgressBar();
+    }
+
+    private void setupLayout()
+    {
+        getPanelCenter().setLayout(new GridLayout(1, 1));
+        getPanelCenter().add(new JScrollPane(jListGarbageFiles));
+
+        getPanelBottom().setLayout(new FlowLayout());
+        getPanelBottom().add(buttonDelete);
+        getPanelBottom().add(labelFreed);
+        getPanelBottom().add(labelCleaning);
         getPanelBottom().add(progressBarCleanning);
     }
 

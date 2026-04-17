@@ -13,7 +13,7 @@ public class OSUtilsWin implements OSUtils {
         if (!state) {
             pb = new ProcessBuilder("reg", "delete",
                 "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
-                "/v", "AntiVirus",
+                "/v", programName,
                 "/f");
             pb.start();
             return;
@@ -26,7 +26,7 @@ public class OSUtilsWin implements OSUtils {
                              .getPath();
         pb = new ProcessBuilder("reg", "add",
             "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
-            "/v", "AntiVirus",
+            "/v", programName,
             "/t", "REG_SZ",
             "/d", "\"" + jarPath + "\"");
         pb.start();

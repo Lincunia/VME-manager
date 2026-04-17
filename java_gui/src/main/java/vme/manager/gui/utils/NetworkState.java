@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.*;
 import java.util.Collections;
@@ -33,9 +32,35 @@ public class NetworkState extends ContainerUtil {
         super(jTabbedPane);
 
         initComponents();
+        setupLayout();
     }
 
     private void initComponents()
+    {
+        textAreaNetInt = new JTextArea();
+        textAreaNetInt.setEditable(false);
+        textAreaNetInt.setText(getNetworkInterfaceAddresses());
+
+        textFieldHost = new JTextField(15);
+        textFieldHost.setText("google.com");
+
+        textFieldPort = new JTextField(15);
+        textFieldPort.setText("80");
+
+        textFieldTimeout = new JTextField(15);
+        textFieldTimeout.setText("2000");
+
+        textFieldCount = new JTextField(15);
+        textFieldCount.setText("5");
+
+        buttonMsrLatency = new JButton("Empezar la medición");
+        buttonMsrLatency.addActionListener(e -> verifyLatency());
+
+        textAreaLatency = new JTextArea();
+        textAreaLatency.setEditable(false);
+    }
+
+    private void setupLayout()
     {
         getPanelBottom().setLayout(new BoxLayout(getPanelBottom(), BoxLayout.X_AXIS));
 
@@ -43,23 +68,20 @@ public class NetworkState extends ContainerUtil {
         getPanelLeft().setBorder(BorderFactory.createTitledBorder(
             BorderFactory.createLineBorder(Color.BLACK),
             "Interfaces de red del dispositivo"));
+        getPanelLeft().add(new JScrollPane(textAreaNetInt));
 
         getPanelRight().setLayout(new BoxLayout(getPanelRight(), BoxLayout.Y_AXIS));
         getPanelRight().setBorder(BorderFactory.createTitledBorder(
             BorderFactory.createLineBorder(Color.BLACK),
             "Medición de latencia"));
 
-        textAreaNetInt = new JTextArea();
-        textAreaNetInt.setEditable(false);
-        textAreaNetInt.setText(getNetworkInterfaceAddresses());
-        getPanelLeft().add(new JScrollPane(textAreaNetInt));
-
         JPanel panelForm = new JPanel();
         panelForm.setLayout(new GridBagLayout());
+
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5); // Espaciado
-        gbc.anchor = GridBagConstraints.EAST; // Alinear etiquetas a la derecha
-        // Etiquetas (columna 0)
+        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.anchor = GridBagConstraints.EAST;
+
         gbc.gridx = 0;
         gbc.gridy = 0;
         panelForm.add(new JLabel("Host:"), gbc);
@@ -80,77 +102,67 @@ public class NetworkState extends ContainerUtil {
         gbc.weightx = 1.0; // Ocupar espacio extra
 
         gbc.gridy = 0;
-        textFieldHost = new JTextField(15);
-        textFieldHost.setText("google.com");
         panelForm.add(textFieldHost, gbc);
 
         gbc.gridy = 1;
-        textFieldPort = new JTextField(15);
-        textFieldPort.setText("80");
         panelForm.add(textFieldPort, gbc);
 
         gbc.gridy = 2;
-        textFieldTimeout = new JTextField(15);
-        textFieldTimeout.setText("2000");
         panelForm.add(textFieldTimeout, gbc);
 
         gbc.gridy = 3;
-        textFieldCount = new JTextField(15);
-        textFieldCount.setText("5");
         panelForm.add(textFieldCount, gbc);
 
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        panelForm.add(buttonMsrLatency, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 5;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridwidth = 2;
+        gbc.ipady = 100;
+        panelForm.add(new JScrollPane(textAreaLatency), gbc);
         getPanelRight().add(panelForm);
-
-        buttonMsrLatency = new JButton("Empezar la medición");
-        buttonMsrLatency.addActionListener((ActionEvent evt) -> {
-            String host = textFieldHost.getText();
-            int port = Integer.parseInt(textFieldPort.getText());
-            int timeoutMs = Integer.parseInt(textFieldTimeout.getText());
-            int count = Integer.parseInt(textFieldCount.getText());
-
-            String output = "";
-            double avgLatency = averagePing(host, port, timeoutMs, count);
-            if (avgLatency != -1) {
-                output = "Latencia promedio de " + host + ":" + port + " es"
-                    + "\n" + avgLatency;
-            } else {
-                output = "Los pings fallaron";
-            }
-			textAreaLatency.append("\n" + output);
-        });
-        getPanelRight().add(buttonMsrLatency);
-
-        textAreaLatency = new JTextArea();
-        textAreaLatency.setEditable(false);
-        getPanelRight().add(new JScrollPane(textAreaLatency));
     }
 
-    public static double averagePing(String host, int port, int timeoutMs, int count)
+    private void verifyLatency()
     {
-        long totalLatency = 0;
-        int successfulPings = 0;
-        String pingMessage = "";
 
-        for (int i = 0; i < count; i++) {
-            long latency = ping(host, port, timeoutMs);
-            if (latency != -1) {
-                totalLatency += latency;
-                successfulPings++;
-                pingMessage = "Ping " + (i + 1) + ": " + latency + " ms\n";
+        String host = textFieldHost.getText();
+        int port = Integer.parseInt(textFieldPort.getText());
+        int timeoutMs = Integer.parseInt(textFieldTimeout.getText());
+        int count = Integer.parseInt(textFieldCount.getText());
+        textAreaLatency.setText("");;
+
+        new Thread(() -> {
+            long totalLatency = 0;
+            int successfulPings = 0;
+            String pingMessage = "";
+            for (int i = 0; i < count; i++) {
+                long latency = ping(host, port, timeoutMs);
+                if (latency != -1) {
+                    totalLatency += latency;
+                    successfulPings++;
+                    pingMessage = "Ping " + (i + 1) + ": " + latency + " ms\n";
+                } else {
+                    pingMessage = "Ping " + (i + 1) + ": fallido\n";
+                }
+                textAreaLatency.append(pingMessage);
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    break;
+                }
+            }
+            if (successfulPings == 0) {
+                textAreaLatency.append("Los pings fallaron");
             } else {
-                pingMessage = "Ping " + (i + 1) + ": fallido\n";
+                textAreaLatency.append("Latencia promedio de " + host + ":" + port + " es"
+                    + "\n" + (double)totalLatency / successfulPings);
             }
-            textAreaLatency.append(pingMessage);
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                break;
-            }
-        }
-        if (successfulPings == 0)
-            return -1;
-        return (double)totalLatency / successfulPings;
+        }).start();
     }
 
     public static long ping(String host, int port, int timeoutMs)

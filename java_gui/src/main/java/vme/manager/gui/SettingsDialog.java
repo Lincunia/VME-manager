@@ -10,7 +10,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.plaf.ColorUIResource;
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import vme.manager.gui.misc.OSFactory;
 import vme.manager.gui.misc.OSUtils;
 
@@ -92,9 +91,7 @@ public class SettingsDialog extends JDialog {
     public void load()
     {
         try {
-            // Cargar configuración guardada previamente (simplificado)
-            // En una implementación real, deberías cargar desde un archivo de configuración
-            currentTheme = "Claro"; // Esto debería venir de un archivo de configuración
+            currentTheme = "Claro";
 
             switch (currentTheme) {
             case "Claro":
@@ -107,7 +104,7 @@ public class SettingsDialog extends JDialog {
 
             applyTheme(comboBoxTheme.getSelectedItem().toString());
 
-            osUtils.setEnableStartup(checkBoxStartUp.isSelected());
+            //osUtils.setEnableStartup(checkBoxStartUp.isSelected());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(
                 null,
@@ -122,10 +119,7 @@ public class SettingsDialog extends JDialog {
         try {
             currentTheme = comboBoxTheme.getSelectedItem().toString();
             applyTheme(currentTheme);
-
-            // Aquí deberías guardar la configuración en un archivo
-            // Por ejemplo: saveThemeToFile(selectedTheme);
-
+            osUtils.setEnableStartup(checkBoxStartUp.isSelected());
         } catch (Exception e) {
             e.printStackTrace();
         }

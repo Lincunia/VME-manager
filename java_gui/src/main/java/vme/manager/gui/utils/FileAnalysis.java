@@ -3,7 +3,6 @@ package vme.manager.gui.utils;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.io.File;
@@ -30,6 +29,7 @@ public class FileAnalysis extends ContainerUtil {
     private Random random;
     private JLabel statusLabel;
     private GraficoPanel graficoPanel;
+	private String fileSearch;
 
     public FileAnalysis(JTabbedPane jTabbedPane)
     {
@@ -44,14 +44,13 @@ public class FileAnalysis extends ContainerUtil {
         // Lista de archivos encontrados
         defaultListModelFilesFound = new DefaultListModel<>();
         jListFilesFound = new JList<>(defaultListModelFilesFound);
-        jListFilesFound.setFont(new Font("monospaced", Font.PLAIN, 12));
 
         // Panel para el gráfico
         graficoPanel = new GraficoPanel();
         panelGraphics = new JPanel(new BorderLayout());
         panelGraphics.add(graficoPanel, BorderLayout.CENTER);
         panelGraphics.setBorder(BorderFactory.createTitledBorder(
-            BorderFactory.createLineBorder(Color.GRAY),
+            BorderFactory.createLineBorder(Color.BLACK),
             "Uso de disco",
             TitledBorder.LEFT,
             TitledBorder.TOP));
@@ -78,7 +77,7 @@ public class FileAnalysis extends ContainerUtil {
 
         // Label de estado
         statusLabel = new JLabel("Listo para analizar");
-        statusLabel.setFont(new Font("sans-serif", Font.ITALIC, 12));
+//        statusLabel.setFont(new Font("sans-serif", Font.ITALIC, 12));
     }
 
     private void setupLayout()
@@ -90,7 +89,7 @@ public class FileAnalysis extends ContainerUtil {
 
         // Panel superior con título
         JLabel titleLabel = new JLabel("Análisis de Archivos");
-        titleLabel.setFont(new Font("sans-serif", Font.BOLD, 18));
+//        titleLabel.setFont(new Font("sans-serif", Font.BOLD, 18));
         getPanelTop().add(titleLabel);
 
         // Panel central con el split pane
@@ -145,7 +144,7 @@ public class FileAnalysis extends ContainerUtil {
     {
         boolean virusEncontrado = false;
 
-        String fileSearch = getFileStart();
+        fileSearch = System.getProperty("user.home");
         if (fileSearch.isEmpty()) {
             System.err.println("No se pudo analizar el punto de entrada: Sistema de archivos equivocado");
             javax.swing.SwingUtilities.invokeLater(() -> {
@@ -211,36 +210,16 @@ public class FileAnalysis extends ContainerUtil {
                 buttonClean.setEnabled(true);
                 statusLabel.setText("Sistema seguro - No se encontraron problemas");
             }
-
-            // Actualizar gráfico después del análisis
             graficoPanel.repaint();
         });
     }
 
-    private String getFileStart()
-    {
-        String osName = System.getProperty("os.name").toLowerCase();
-        String fileSearch = "";
-
-        if (osName.contains("win")) {
-            fileSearch = System.getProperty("user.home"); // Mejor que C:/Users fijo
-        } else if (osName.contains("mac")) {
-            fileSearch = "/Users";
-        } else if (osName.contains("nix") || osName.contains("nux") || osName.contains("aix")) {
-            fileSearch = "/home";
-        }
-
-        return fileSearch;
-    }
-
-    // Clase interna para el gráfico
     private class GraficoPanel extends JPanel {
-        @Override
         protected void paintComponent(Graphics g)
         {
             super.paintComponent(g);
 
-            String fileSearch = getFileStart();
+            fileSearch = System.getProperty("user.home");
             if (fileSearch.isEmpty()) {
                 g.setColor(Color.RED);
                 g.drawString("No se pudo analizar el disco", 50, 150);
@@ -281,7 +260,7 @@ public class FileAnalysis extends ContainerUtil {
             g.drawOval(x, y, size, size);
 
             // Texto de estadísticas
-            g.setFont(new Font("sans-serif", Font.PLAIN, 12));
+//            g.setFont(new Font("sans-serif", Font.PLAIN, 12));
             g.setColor(Color.BLACK);
 
             String usadoStr = String.format("Usado: %.2f GB", usado / (1024.0 * 1024 * 1024));

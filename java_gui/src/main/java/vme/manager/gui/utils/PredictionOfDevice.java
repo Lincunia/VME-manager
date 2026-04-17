@@ -7,6 +7,5 @@ public class PredictionOfDevice extends ContainerUtil {
     public PredictionOfDevice(JTabbedPane jTabbedPane)
     {
         super(jTabbedPane);
-        //getPanelTop().add(setLabel("En desarrollo"));
     }
 }

@@ -6,6 +6,5 @@ public class OptimizationMethodology extends ContainerUtil {
     public OptimizationMethodology(JTabbedPane jTabbedPane)
     {
         super(jTabbedPane);
-        //getPanelTop().add(setLabel("En desarrollo"));
     }
 }
