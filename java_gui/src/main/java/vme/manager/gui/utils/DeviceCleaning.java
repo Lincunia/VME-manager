@@ -13,16 +13,20 @@ import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 
+import vme.manager.gui.misc.LanguageManager;
+
 public class DeviceCleaning extends ContainerUtil {
     private JLabel labelCleaning, labelFreed;
     private JButton buttonDelete;
     private JProgressBar progressBarCleanning;
     private DefaultListModel<String> defaultListModelTempFiles;
-
     private JList<String> jListGarbageFiles;
+	private LanguageManager langManager;
+
     public DeviceCleaning(JTabbedPane jTabbedPane)
     {
         super(jTabbedPane);
+		langManager = LanguageManager.getInstance();
         initComponents();
         setupLayout();
     }
@@ -33,18 +37,19 @@ public class DeviceCleaning extends ContainerUtil {
         jListGarbageFiles = new JList<>(defaultListModelTempFiles);
         jListGarbageFiles.setVisibleRowCount(-1);
 
-        buttonDelete = new JButton("Eliminar");
+        buttonDelete = new JButton(langManager.getString("devicecleaning.button.delete"));
         buttonDelete.addActionListener((ActionEvent e) -> {
             int confirm = JOptionPane.showConfirmDialog(
                 this,
-                "¿Eliminar archivos temporales?",
-                "Confirmación",
+				langManager.getString("devicecleaning.confirm.message"),
+				langManager.getString("devicecleaning.files.deleted"),
                 JOptionPane.YES_NO_OPTION);
             if (confirm != JOptionPane.YES_NO_OPTION) {
                 return;
             }
             int deletedFiles = deleteGarbage();
-            JOptionPane.showMessageDialog(this, "Archivos eliminados: " + deletedFiles);
+            JOptionPane.showMessageDialog(this,
+					langManager.getString("devicecleaning.files.deleted") + deletedFiles);
             checkStorage();
         });
 
@@ -65,6 +70,10 @@ public class DeviceCleaning extends ContainerUtil {
         getPanelBottom().add(progressBarCleanning);
     }
 
+	public void refreshTexts(){
+		System.out.println("Lo traduciré LOL");
+	}
+
     public void scanGarbage()
     {
         new Thread(() -> {
@@ -78,7 +87,9 @@ public class DeviceCleaning extends ContainerUtil {
 
                 javax.swing.SwingUtilities.invokeLater(() -> {
                     progressBarCleanning.setValue(progreso);
-                    labelCleaning.setText("Escaneando... " + progreso + "%");
+                    labelCleaning.setText(
+							langManager.getString("devicecleaning.scanning")
+							+ progreso + "%");
                 });
             }
 
@@ -148,7 +159,8 @@ public class DeviceCleaning extends ContainerUtil {
 double storageToFree = (loadGarbage() / (1024 * 1024));
         System.out.println(storageToFree);
         */
-        labelFreed.setText("Espacio a liberar: " + loadGarbage() + " B");
-        labelCleaning.setText("Escaneo completado");
+        labelFreed.setText(langManager.getString("devicecleaning.space.free")
+				+ loadGarbage() + " B");
+        labelCleaning.setText(langManager.getString("devicecleaning.completed"));
     }
 }

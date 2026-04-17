@@ -13,6 +13,7 @@ public class HardwareIntegrity extends ContainerUtil {
         initComponents();
         checkSystemInformation();
     }
+
     private void initComponents()
     {
         textAreaTest = new JTextArea();
@@ -20,6 +21,7 @@ public class HardwareIntegrity extends ContainerUtil {
         getPanelCenter().setLayout(new GridLayout());
         getPanelCenter().add(new JScrollPane(textAreaTest));
     }
+
     public void checkSystemInformation()
     {
         try {
@@ -30,4 +32,8 @@ public class HardwareIntegrity extends ContainerUtil {
             e.printStackTrace();
         }
     }
+
+	public void refreshTexts(){
+		System.out.println("Lo traduciré LOL");
+	}
 }

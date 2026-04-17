@@ -17,4 +17,7 @@ public class ContainerUtil extends ContainerBoilerPlate {
     {
         return tabbedPaneParent;
     }
+
+	public void refreshTexts(){
+	}
 }

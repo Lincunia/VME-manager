@@ -126,6 +126,10 @@ public class NetworkState extends ContainerUtil {
         getPanelRight().add(panelForm);
     }
 
+	public void refreshTexts(){
+		System.out.println("Lo traduciré LOL");
+	}
+
     private void verifyLatency()
     {
 

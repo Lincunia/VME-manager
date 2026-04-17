@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.plaf.ColorUIResource;
+import vme.manager.gui.misc.LanguageManager;
 import vme.manager.gui.misc.OSFactory;
 import vme.manager.gui.misc.OSUtils;
 
@@ -25,6 +26,7 @@ public class SettingsDialog extends JDialog {
     private static OSUtils osUtils;
     private ContainerBoilerPlate innerContainer;
     private static JFrame parentFrame;
+    private LanguageManager langManager;
 
     // Definir colores para ambos temas
     private static final Color LIGHT_BG = new Color(236, 236, 236);
@@ -41,15 +43,19 @@ public class SettingsDialog extends JDialog {
     private static final Color DARK_TEXTAREA_BG = new Color(43, 43, 43);
     private static final Color DARK_BORDER = new Color(105, 105, 105);
 
-    private static String currentTheme = "Claro";
+    private String currentTheme;
 
     public SettingsDialog(JFrame parent, boolean modal)
     {
         super(parent, modal);
         parentFrame = parent;
+
+        langManager = LanguageManager.getInstance();
+
+        setTitle(langManager.getString("settings.title"));
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
-        setTitle("Configuración de VME-manager");
+        setResizable(false);
 
         osUtils = OSFactory.create();
 
@@ -67,67 +73,92 @@ public class SettingsDialog extends JDialog {
 
         add(innerContainer);
 
-        buttonSave = new JButton("Guardar");
+        buttonSave = new JButton(langManager.getString("settings.save"));
         buttonSave.addActionListener((ActionEvent e) -> {
             save();
             this.dispose();
         });
         innerContainer.getPanelBottom().add(buttonSave);
 
-        checkBoxStartUp = new JCheckBox("Iniciar al encender el equipo");
+        checkBoxStartUp = new JCheckBox(langManager.getString("settings.startup"));
         innerContainer.getPanelCenter().add(checkBoxStartUp);
 
         comboBoxLanguage = new JComboBox<>();
-        comboBoxLanguage.setModel(new DefaultComboBoxModel<>(new String[] { "Español", "Inglés" }));
-        comboBoxLanguage.setSelectedIndex(0);
+        comboBoxLanguage.setModel(new DefaultComboBoxModel<>(new String[] {
+            langManager.getString("settings.language.spanish"),
+            langManager.getString("settings.language.english") }));
+        comboBoxLanguage.setSelectedIndex("en".equals(langManager.getCurrentLanguage()) ? 1 : 0);
         innerContainer.getPanelCenter().add(comboBoxLanguage);
 
         comboBoxTheme = new JComboBox<>();
-        comboBoxTheme.setModel(new DefaultComboBoxModel<>(new String[] { "Claro", "Oscuro" }));
+        comboBoxTheme.setModel(new DefaultComboBoxModel<>(new String[] {
+            langManager.getString("settings.theme.light"),
+            langManager.getString("settings.theme.dark") }));
         comboBoxTheme.setSelectedIndex(0);
         innerContainer.getPanelCenter().add(comboBoxTheme);
     }
 
     public void load()
     {
-        try {
-            currentTheme = "Claro";
-
-            switch (currentTheme) {
-            case "Claro":
-                comboBoxTheme.setSelectedIndex(0);
-                break;
-            case "Oscuro":
-                comboBoxTheme.setSelectedIndex(1);
-                break;
-            }
-
-            applyTheme(comboBoxTheme.getSelectedItem().toString());
-
-            //osUtils.setEnableStartup(checkBoxStartUp.isSelected());
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(
-                null,
-                e.getMessage(),
-                "Ha ocurrido un error",
-                JOptionPane.WARNING_MESSAGE);
-        }
+        // Falta implementar la carga de configuración
     }
 
     public void save()
     {
         try {
+            osUtils.setEnableStartup(checkBoxStartUp.isSelected());
             currentTheme = comboBoxTheme.getSelectedItem().toString();
             applyTheme(currentTheme);
-            osUtils.setEnableStartup(checkBoxStartUp.isSelected());
+            changeLanguage();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    private void changeLanguage()
+    {
+        String selectedLanguage = comboBoxLanguage.getSelectedItem().toString();
+        String languageCode = langManager.getString("settings.language.spanish").equals(selectedLanguage) ? "es" : "en";
+        System.out.println(languageCode);
+
+        if (!languageCode.equals(langManager.getCurrentLanguage())) {
+            langManager.loadLanguage(languageCode);
+            updateDialogTexts();
+            ((Frame)parentFrame).refreshAllTexts();
+            /*
+if (parentFrame instanceof Frame) {
+((Frame)parentFrame).refreshAllTexts();
+}
+    */
+        }
+    }
+
+    private void updateDialogTexts()
+    {
+        setTitle(langManager.getString("settings.title"));
+        buttonSave.setText(langManager.getString("settings.save"));
+        checkBoxStartUp.setText(langManager.getString("settings.startup"));
+
+        // Actualizar items del combo de idioma sin disparar evento
+        // comboBoxLanguage.removeActionListener(comboBoxLanguage.getActionListeners()[0]);
+        comboBoxLanguage.setModel(new DefaultComboBoxModel<>(new String[] {
+            langManager.getString("settings.language.spanish"),
+            langManager.getString("settings.language.english") }));
+        comboBoxLanguage.setSelectedIndex("en".equals(langManager.getCurrentLanguage()) ? 1 : 0);
+
+        // Actualizar items del combo de tema
+        comboBoxTheme.setModel(new DefaultComboBoxModel<>(new String[] {
+            langManager.getString("settings.theme.light"),
+            langManager.getString("settings.theme.dark") }));
+
+        revalidate();
+        repaint();
+    }
+
     private void applyTheme(String theme)
     {
         try {
-            if ("Oscuro".equals(theme)) {
+            if (langManager.getString("settings.theme.dark").equals(theme)) {
                 applyDarkTheme();
             } else {
                 applyLightTheme();
@@ -170,7 +201,6 @@ public class SettingsDialog extends JDialog {
         Border lineBorder = BorderFactory.createLineBorder(DARK_BORDER);
         UIManager.put("TitledBorder.border", lineBorder);
         UIManager.put("TitledBorder.titleColor", new ColorUIResource(DARK_TEXT));
-
     }
 
     private void applyLightTheme()

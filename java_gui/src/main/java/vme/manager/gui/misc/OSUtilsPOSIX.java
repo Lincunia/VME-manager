@@ -9,7 +9,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class OSUtilsPOSIX implements OSUtils {
-    private ProcessBuilder pb;
+    private static ProcessBuilder pb;
+	private static BufferedReader reader;
+	private static String lineRead;
     public void setEnableStartup(boolean state) throws IOException, URISyntaxException
     {
         String jarPath = new File(
@@ -38,9 +40,9 @@ public class OSUtilsPOSIX implements OSUtils {
         if (!crontabContent.contains(crontabEntry.trim())) {
             crontabContent += crontabEntry;
             updateCrontab(crontabContent);
-            System.out.println("✅ Instalado en crontab correctamente");
+            System.out.println("Instalado en crontab correctamente");
         } else {
-            System.out.println("⚠️ Ya está instalado en crontab");
+            System.out.println("Ya está instalado en crontab");
         }
     }
 
@@ -69,31 +71,24 @@ public class OSUtilsPOSIX implements OSUtils {
 
     public String getMemInf() throws IOException
     {
-        String inf = "";
         pb = new ProcessBuilder("free", "-h");
-        BufferedReader reader = new BufferedReader(
-            new InputStreamReader(
-                pb
-                    .start()
-                    .getInputStream()));
+		Process pr = pb.start();
+        reader = new BufferedReader(new InputStreamReader(pr.getInputStream()));
         StringBuilder builder = new StringBuilder();
-        while ((inf = reader.readLine()) != null) {
-            builder.append(inf + '\n');
+        while ((lineRead = reader.readLine()) != null) {
+            builder.append(lineRead + '\n');
         }
         return builder.toString();
     }
     public String getCPUInf() throws IOException
     {
-        String inf;
         pb = new ProcessBuilder("lscpu");
-        BufferedReader reader = new BufferedReader(
-            new InputStreamReader(
-                pb
-                    .start()
-                    .getInputStream()));
+		Process pr = pb.start();
+        reader = new BufferedReader(new InputStreamReader(pr.getInputStream()));
         StringBuilder builder = new StringBuilder();
-        while ((inf = reader.readLine()) != null) {
-            builder.append(inf + '\n');
+		
+        while ((lineRead = reader.readLine()) != null) {
+            builder.append(lineRead + '\n');
         }
         return builder.toString();
     }

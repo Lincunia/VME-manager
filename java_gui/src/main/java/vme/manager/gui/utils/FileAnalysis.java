@@ -2,6 +2,7 @@ package vme.manager.gui.utils;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -19,6 +20,8 @@ import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 import javax.swing.border.TitledBorder;
 
+import vme.manager.gui.misc.LanguageManager;
+
 public class FileAnalysis extends ContainerUtil {
     private JButton buttonAnalyze;
     private JButton buttonClean;
@@ -27,14 +30,15 @@ public class FileAnalysis extends ContainerUtil {
     private DefaultListModel<String> defaultListModelFilesFound;
     private JList<String> jListFilesFound;
     private Random random;
-    private JLabel statusLabel;
+    private JLabel statusLabel, titleLabel;
     private GraficoPanel graficoPanel;
 	private String fileSearch;
+	private LanguageManager langManager;
 
     public FileAnalysis(JTabbedPane jTabbedPane)
     {
         super(jTabbedPane);
-
+		langManager = LanguageManager.getInstance();
         initComponents();
         setupLayout();
     }
@@ -51,7 +55,7 @@ public class FileAnalysis extends ContainerUtil {
         panelGraphics.add(graficoPanel, BorderLayout.CENTER);
         panelGraphics.setBorder(BorderFactory.createTitledBorder(
             BorderFactory.createLineBorder(Color.BLACK),
-            "Uso de disco",
+			langManager.getString("fileanalysis.disk.usage"),
             TitledBorder.LEFT,
             TitledBorder.TOP));
 
@@ -64,19 +68,19 @@ public class FileAnalysis extends ContainerUtil {
         splitPaneFiles.setDividerLocation(0.4);
 
         // Botones
-        buttonAnalyze = new JButton("Iniciar análisis");
+        buttonAnalyze = new JButton(langManager.getString("fileanalysis.button.analyze"));
         buttonAnalyze.addActionListener((ActionEvent evt) -> {
             analyzeSystem();
         });
 
-        buttonClean = new JButton("Ir a Limpieza");
+        buttonClean = new JButton(langManager.getString("fileanalysis.button.clean"));
         buttonClean.setEnabled(false);
         buttonClean.addActionListener((ActionEvent evt) -> {
             getTabbedPaneParent().setSelectedIndex(3);
         });
 
         // Label de estado
-        statusLabel = new JLabel("Listo para analizar");
+        statusLabel = new JLabel(langManager.getString("fileanalysis.status.ready"));
 //        statusLabel.setFont(new Font("sans-serif", Font.ITALIC, 12));
     }
 
@@ -88,7 +92,7 @@ public class FileAnalysis extends ContainerUtil {
         getPanelBottom().removeAll();
 
         // Panel superior con título
-        JLabel titleLabel = new JLabel("Análisis de Archivos");
+        titleLabel = new JLabel(langManager.getString("fileanalysis.title"));
 //        titleLabel.setFont(new Font("sans-serif", Font.BOLD, 18));
         getPanelTop().add(titleLabel);
 
@@ -114,11 +118,31 @@ public class FileAnalysis extends ContainerUtil {
         repaint();
     }
 
+	public void refreshTexts(){
+        // Actualizar textos de los componentes
+        buttonAnalyze.setText(langManager.getString("fileanalysis.button.analyze"));
+        buttonClean.setText(langManager.getString("fileanalysis.button.clean"));
+        statusLabel.setText(langManager.getString("fileanalysis.status.ready"));
+        
+        // Actualizar borde del panel gráfico
+        panelGraphics.setBorder(BorderFactory.createTitledBorder(
+            BorderFactory.createLineBorder(Color.BLACK),
+            langManager.getString("fileanalysis.disk.usage"),
+            TitledBorder.LEFT,
+            TitledBorder.TOP));
+
+		titleLabel.setText(langManager.getString("fileanalysis.title"));
+        
+        
+        revalidate();
+        repaint();
+	}
+
     private void analyzeSystem()
     {
         defaultListModelFilesFound.clear();
         random = new Random();
-        statusLabel.setText("Analizando sistema...");
+statusLabel.setText(langManager.getString("fileanalysis.status.analyzing"));
         buttonAnalyze.setEnabled(false);
 
         // Simular proceso de análisis
@@ -134,7 +158,7 @@ public class FileAnalysis extends ContainerUtil {
             protected void done()
             {
                 buttonAnalyze.setEnabled(true);
-                statusLabel.setText("Análisis completado");
+statusLabel.setText(langManager.getString("fileanalysis.status.completed"));
             }
         };
         worker.execute();
@@ -146,9 +170,8 @@ public class FileAnalysis extends ContainerUtil {
 
         fileSearch = System.getProperty("user.home");
         if (fileSearch.isEmpty()) {
-            System.err.println("No se pudo analizar el punto de entrada: Sistema de archivos equivocado");
             javax.swing.SwingUtilities.invokeLater(() -> {
-                statusLabel.setText("Error: No se pudo acceder al sistema de archivos");
+                statusLabel.setText(langManager.getString("fileanalysis.status.error"));
             });
             return;
         }
@@ -196,19 +219,19 @@ public class FileAnalysis extends ContainerUtil {
             if (finalVirusEncontrado) {
                 JOptionPane.showMessageDialog(
                     FileAnalysis.this,
-                    "Se han encontrado archivos sospechosos.\nRevise la lista para más detalles.",
-                    "Alerta",
+                    langManager.getString("fileanalysis.alert.message"),
+                    langManager.getString("fileanalysis.alert.title"),
                     JOptionPane.WARNING_MESSAGE);
                 buttonClean.setEnabled(true);
                 statusLabel.setText("¡Atención! Se encontraron archivos sospechosos");
             } else {
                 JOptionPane.showMessageDialog(
                     FileAnalysis.this,
-                    "No se encontraron archivos sospechosos.\nEl sistema parece estar seguro.",
-                    "Información",
+                    langManager.getString("fileanalysis.info.message"),
+                    langManager.getString("fileanalysis.info.title"),
                     JOptionPane.INFORMATION_MESSAGE);
                 buttonClean.setEnabled(true);
-                statusLabel.setText("Sistema seguro - No se encontraron problemas");
+                statusLabel.setText("fileanalysis.status.safe");
             }
             graficoPanel.repaint();
         });
@@ -263,10 +286,10 @@ public class FileAnalysis extends ContainerUtil {
 //            g.setFont(new Font("sans-serif", Font.PLAIN, 12));
             g.setColor(Color.BLACK);
 
-            String usadoStr = String.format("Usado: %.2f GB", usado / (1024.0 * 1024 * 1024));
-            String libreStr = String.format("Libre: %.2f GB", libre / (1024.0 * 1024 * 1024));
-            String totalStr = String.format("Total: %.2f GB", total / (1024.0 * 1024 * 1024));
-            String porcentajeStr = String.format("Porcentaje usado: %.1f%%", porcentajeUsado);
+			String usadoStr = String.format(langManager.getString("fileanalysis.disk.used") + ": %.2f GB", usado / (1024.0 * 1024 * 1024));
+            String libreStr = String.format(langManager.getString("fileanalysis.disk.free") + ": %.2f GB", libre / (1024.0 * 1024 * 1024));
+            String totalStr = String.format(langManager.getString("fileanalysis.disk.total") + ": %.2f GB", total / (1024.0 * 1024 * 1024));
+            String porcentajeStr = String.format(langManager.getString("fileanalysis.disk.percentage") + ": %.1f%%", porcentajeUsado);
 
             g.drawString(usadoStr, 50, 270);
             g.drawString(libreStr, 50, 285);
@@ -274,15 +297,15 @@ public class FileAnalysis extends ContainerUtil {
             g.drawString(porcentajeStr, 50, 315);
 
             // Leyenda
-            g.setColor(Color.RED);
+			g.setColor(Color.RED);
             g.fillRect(260, 50, 20, 10);
             g.setColor(Color.BLACK);
-            g.drawString("Usado", 285, 60);
-
+            g.drawString(langManager.getString("fileanalysis.disk.used"), 285, 60);
+            
             g.setColor(Color.GREEN);
             g.fillRect(260, 70, 20, 10);
             g.setColor(Color.BLACK);
-            g.drawString("Libre", 285, 80);
+            g.drawString(langManager.getString("fileanalysis.disk.free"), 285, 80);
         }
 
         @Override
