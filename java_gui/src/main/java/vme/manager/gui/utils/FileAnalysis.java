@@ -2,7 +2,6 @@ package vme.manager.gui.utils;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -19,7 +18,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 import javax.swing.border.TitledBorder;
-
 import vme.manager.gui.misc.LanguageManager;
 
 public class FileAnalysis extends ContainerUtil {
@@ -32,13 +30,13 @@ public class FileAnalysis extends ContainerUtil {
     private Random random;
     private JLabel statusLabel, titleLabel;
     private GraficoPanel graficoPanel;
-	private String fileSearch;
+    private String fileSearch;
 	private LanguageManager langManager;
 
     public FileAnalysis(JTabbedPane jTabbedPane)
     {
         super(jTabbedPane);
-		langManager = LanguageManager.getInstance();
+        langManager = LanguageManager.getInstance();
         initComponents();
         setupLayout();
     }
@@ -55,7 +53,7 @@ public class FileAnalysis extends ContainerUtil {
         panelGraphics.add(graficoPanel, BorderLayout.CENTER);
         panelGraphics.setBorder(BorderFactory.createTitledBorder(
             BorderFactory.createLineBorder(Color.BLACK),
-			langManager.getString("fileanalysis.disk.usage"),
+            langManager.getString("fileanalysis.disk.usage"),
             TitledBorder.LEFT,
             TitledBorder.TOP));
 
@@ -81,7 +79,7 @@ public class FileAnalysis extends ContainerUtil {
 
         // Label de estado
         statusLabel = new JLabel(langManager.getString("fileanalysis.status.ready"));
-//        statusLabel.setFont(new Font("sans-serif", Font.ITALIC, 12));
+        //        statusLabel.setFont(new Font("sans-serif", Font.ITALIC, 12));
     }
 
     private void setupLayout()
@@ -93,7 +91,7 @@ public class FileAnalysis extends ContainerUtil {
 
         // Panel superior con título
         titleLabel = new JLabel(langManager.getString("fileanalysis.title"));
-//        titleLabel.setFont(new Font("sans-serif", Font.BOLD, 18));
+        //        titleLabel.setFont(new Font("sans-serif", Font.BOLD, 18));
         getPanelTop().add(titleLabel);
 
         // Panel central con el split pane
@@ -118,12 +116,13 @@ public class FileAnalysis extends ContainerUtil {
         repaint();
     }
 
-	public void refreshTexts(){
+    public void refreshTexts()
+    {
         // Actualizar textos de los componentes
         buttonAnalyze.setText(langManager.getString("fileanalysis.button.analyze"));
         buttonClean.setText(langManager.getString("fileanalysis.button.clean"));
         statusLabel.setText(langManager.getString("fileanalysis.status.ready"));
-        
+
         // Actualizar borde del panel gráfico
         panelGraphics.setBorder(BorderFactory.createTitledBorder(
             BorderFactory.createLineBorder(Color.BLACK),
@@ -131,18 +130,17 @@ public class FileAnalysis extends ContainerUtil {
             TitledBorder.LEFT,
             TitledBorder.TOP));
 
-		titleLabel.setText(langManager.getString("fileanalysis.title"));
-        
-        
+        titleLabel.setText(langManager.getString("fileanalysis.title"));
+
         revalidate();
         repaint();
-	}
+    }
 
     private void analyzeSystem()
     {
         defaultListModelFilesFound.clear();
         random = new Random();
-statusLabel.setText(langManager.getString("fileanalysis.status.analyzing"));
+        statusLabel.setText(langManager.getString("fileanalysis.status.analyzing"));
         buttonAnalyze.setEnabled(false);
 
         // Simular proceso de análisis
@@ -158,7 +156,7 @@ statusLabel.setText(langManager.getString("fileanalysis.status.analyzing"));
             protected void done()
             {
                 buttonAnalyze.setEnabled(true);
-statusLabel.setText(langManager.getString("fileanalysis.status.completed"));
+                statusLabel.setText(langManager.getString("fileanalysis.status.completed"));
             }
         };
         worker.execute();
@@ -283,10 +281,10 @@ statusLabel.setText(langManager.getString("fileanalysis.status.completed"));
             g.drawOval(x, y, size, size);
 
             // Texto de estadísticas
-//            g.setFont(new Font("sans-serif", Font.PLAIN, 12));
+            //            g.setFont(new Font("sans-serif", Font.PLAIN, 12));
             g.setColor(Color.BLACK);
 
-			String usadoStr = String.format(langManager.getString("fileanalysis.disk.used") + ": %.2f GB", usado / (1024.0 * 1024 * 1024));
+            String usadoStr = String.format(langManager.getString("fileanalysis.disk.used") + ": %.2f GB", usado / (1024.0 * 1024 * 1024));
             String libreStr = String.format(langManager.getString("fileanalysis.disk.free") + ": %.2f GB", libre / (1024.0 * 1024 * 1024));
             String totalStr = String.format(langManager.getString("fileanalysis.disk.total") + ": %.2f GB", total / (1024.0 * 1024 * 1024));
             String porcentajeStr = String.format(langManager.getString("fileanalysis.disk.percentage") + ": %.1f%%", porcentajeUsado);
@@ -297,11 +295,11 @@ statusLabel.setText(langManager.getString("fileanalysis.status.completed"));
             g.drawString(porcentajeStr, 50, 315);
 
             // Leyenda
-			g.setColor(Color.RED);
+            g.setColor(Color.RED);
             g.fillRect(260, 50, 20, 10);
             g.setColor(Color.BLACK);
             g.drawString(langManager.getString("fileanalysis.disk.used"), 285, 60);
-            
+
             g.setColor(Color.GREEN);
             g.fillRect(260, 70, 20, 10);
             g.setColor(Color.BLACK);

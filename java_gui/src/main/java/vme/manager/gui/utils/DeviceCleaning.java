@@ -71,7 +71,9 @@ public class DeviceCleaning extends ContainerUtil {
     }
 
 	public void refreshTexts(){
-		System.out.println("Lo traduciré LOL");
+        labelFreed.setText(langManager.getString("devicecleaning.space.free") + loadGarbage() + " B");
+        labelCleaning.setText(langManager.getString("devicecleaning.completed"));
+        buttonDelete.setText(langManager.getString("devicecleaning.button.delete"));
 	}
 
     public void scanGarbage()

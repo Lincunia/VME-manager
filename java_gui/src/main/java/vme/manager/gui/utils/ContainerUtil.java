@@ -10,7 +10,7 @@ public class ContainerUtil extends ContainerBoilerPlate {
     {
         super();
         tabbedPaneParent = tabbedPane;
-        setPreferredSize(new Dimension(400, 300));
+        setPreferredSize(new Dimension(800, 600));
     }
 
     public JTabbedPane getTabbedPaneParent()

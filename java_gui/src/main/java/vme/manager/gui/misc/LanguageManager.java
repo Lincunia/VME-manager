@@ -33,7 +33,7 @@ public class LanguageManager {
             bundle = ResourceBundle.getBundle("vme.manager.gui.i18n.messages", currentLocale);
         } catch (MissingResourceException e) {
             System.err.println("Resource bundle not found, using default");
-            bundle = ResourceBundle.getBundle("vme.manager.gui.i18n.messages", new Locale("es"));
+            bundle = ResourceBundle.getBundle("./resources/i18n.messages", new Locale("es"));
         }
     }
     
