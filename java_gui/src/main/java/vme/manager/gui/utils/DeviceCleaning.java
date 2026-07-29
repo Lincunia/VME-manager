@@ -33,6 +33,7 @@ public class DeviceCleaning extends ContainerUtil {
 
     private void initComponents()
     {
+
         defaultListModelTempFiles = new DefaultListModel<>();
         jListGarbageFiles = new JList<>(defaultListModelTempFiles);
         jListGarbageFiles.setVisibleRowCount(-1);
